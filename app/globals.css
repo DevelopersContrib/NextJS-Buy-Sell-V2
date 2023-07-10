@@ -36,3 +36,87 @@ h6,.h6{
 .font-800{
   font-weight: 800 !important;
 }
+
+@media (max-width: 575.98px) {
+	.buy-form{
+		position: relative;
+	}
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.buy-form{
+		position: relative;
+	}
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.buy-form{
+		position: relative;
+	}
+}
+
+.buy-form{
+  @apply tw-min-h-[300px] tw-bg-white tw-rounded-lg tw-shadow-[0_0.125rem_0.25rem_rgba(0,0,0,.08),0_0.25rem_1.5rem_rgba(0,0,0,.08)] tw-text-black tw-absolute tw-z-10 tw-m-auto tw-overflow-hidden tw-w-full;
+}
+
+.buy-form-header,
+.buy-form-footer,
+.buy-form-button{
+  @apply tw-p-6
+}
+.buy-lease-offer-input{
+  @apply tw-pl-6 tw-pr-6 tw-pb-6
+}
+.buy-options{
+	position: relative;
+	border-top: 1px solid #E2E5EA;
+	border-bottom: 1px solid #E2E5EA;
+}
+.buy-option-item{
+	background-color: transparent;
+	max-height: 72px;
+	transition: max-height 0.15s ease;
+  overflow: hidden;
+}
+.buy-option-item.active{
+	max-height: 134px;
+	transition: max-height 0.25s ease;
+	background-color: #E8F7FB;
+}
+.buy-option-item.active .form-check-input {
+	background-color: #0d6efd;
+	border-color: #0d6efd;
+}
+.buy-option-item.active .form-check-input[type="radio"]{
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e")
+}
+.buy-option-item .form-check-input{
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.buy-options-check{
+	padding-top: 1.5rem;
+	padding-right: 1.5rem;
+	padding-bottom: 1.5rem;
+	padding-left: 2.75rem;
+	cursor: pointer;
+	display: flex;
+	font-weight: 700;
+}
+.buy-options-check:hover{
+	background-color: #cdf5b5;
+}
+.buy-options-check.active{
+	background-color: #E8F7FB;
+}
+.buy-form-button{
+	border-bottom: 1px solid #E2E5EA;
+}
+.buy-form-button .btn{
+	border-radius: 0.5rem;
+}
+.buy-form-amount{
+	position: relative;
+	font-weight: 800;
+}
+.buy-option-item:not(:last-child) {
+	border-bottom: 1px solid #E2E5EA;
+}
