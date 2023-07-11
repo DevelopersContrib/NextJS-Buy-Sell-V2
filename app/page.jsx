@@ -1,18 +1,24 @@
-import Link from "next/link"
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
-import Logo from '../components/Logo';
-import { getData, getDomain, getScript } from '../lib/data';
-import Ai from '../components/Ai';
-import ScriptLoader from '../components/ScriptLoader';
+import Link from "next/link";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import Logo from "../components/Logo";
+import { getData, getDomain, getScript } from "../lib/data";
+import Ai from "../components/Ai";
+import ScriptLoader from "../components/ScriptLoader";
 import Image from "next/image";
-import FormOptions from "../components/Home/Form"
+import FormOptions from "../components/Home/Form";
 
 export default async function Home() {
   const c = await getData();
   const domain = getDomain();
-  const background = c.data.background_url !== null ? c.data.background_url : 'https://cdn.vnoc.com/background/tech4.jpg';
-  const html = await getScript("https://e7lq80c199.execute-api.us-west-2.amazonaws.com/api1?key=5c1bde69a9e783c7edc2e603d8b25023&request=getcontent&url=" + encodeURIComponent(domain))
+  const background =
+    c.data.background_url !== null
+      ? c.data.background_url
+      : "https://cdn.vnoc.com/background/tech4.jpg";
+  const html = await getScript(
+    "https://e7lq80c199.execute-api.us-west-2.amazonaws.com/api1?key=5c1bde69a9e783c7edc2e603d8b25023&request=getcontent&url=" +
+      encodeURIComponent(domain)
+  );
 
   return (
     <>
@@ -28,7 +34,7 @@ export default async function Home() {
               <Logo domain={domain} logo={c.data.logo} />
             </div>
             <div className="col-xl-4 tw-relative">
-              <FormOptions/>
+              <FormOptions domain={domain} />
             </div>
           </div>
         </div>
@@ -37,8 +43,16 @@ export default async function Home() {
         <div className="container">
           <div className="row">
             <div className="col-xl-8">
-              <p>Your site is a reflection of your brand, invest in an impactful domain name like Euroinvestment.com that projects your voice. You can make an offer, partner, lease or join the Euroinvestment.com team today at Contrib.</p>
-              <p>Our Contrib community has 150,000+ contributors who share their original content for Euroinvestment.com.</p>
+              <p>
+                Your site is a reflection of your brand, invest in an impactful
+                domain name like Euroinvestment.com that projects your voice.
+                You can make an offer, partner, lease or join the
+                Euroinvestment.com team today at Contrib.
+              </p>
+              <p>
+                Our Contrib community has 150,000+ contributors who share their
+                original content for Euroinvestment.com.
+              </p>
               <div className="pt-lg-3 row">
                 <div className="text-center mb-3 col-lg-4">
                   <Image
@@ -49,7 +63,10 @@ export default async function Home() {
                     alt="Make an offer"
                   />
                   <h4>Make An Offer</h4>
-                  <p className="small">Find a domain and decide to buy,lease or rent it. Submit your best offer for the owner&apos;s consideration.</p>
+                  <p className="small">
+                    Find a domain and decide to buy,lease or rent it. Submit
+                    your best offer for the owner&apos;s consideration.
+                  </p>
                 </div>
                 <div className="text-center mb-3 col-lg-4">
                   <Image
@@ -60,7 +77,11 @@ export default async function Home() {
                     alt="Negotiate the price"
                   />
                   <h4>Negotiate the price</h4>
-                  <p className="small">Your offer may be accepted, countered or declined. Negotiations can take as little as one day or up to a few weeks.</p>
+                  <p className="small">
+                    Your offer may be accepted, countered or declined.
+                    Negotiations can take as little as one day or up to a few
+                    weeks.
+                  </p>
                 </div>
                 <div className="text-center mb-3 col-lg-4">
                   <Image
@@ -71,7 +92,10 @@ export default async function Home() {
                     alt="Make a deal"
                   />
                   <h4>Make a deal</h4>
-                  <p className="small">Once you have agreed on the price, We will facilitate the contract, payment and transfer or use of the domain name.</p>
+                  <p className="small">
+                    Once you have agreed on the price, We will facilitate the
+                    contract, payment and transfer or use of the domain name.
+                  </p>
                 </div>
               </div>
             </div>
@@ -86,5 +110,5 @@ export default async function Home() {
       <ScriptLoader html={html.data.content} />
       <Footer domain={domain} />
     </>
-  )
+  );
 }
