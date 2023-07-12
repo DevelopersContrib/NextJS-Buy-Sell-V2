@@ -124,7 +124,7 @@ export default async function Home() {
                 {domain} partners
               </h2>
             </div>
-            <LatestContributionsComponent constributions={latestContributions} />
+            <LatestContributionsComponent contributions={latestContributions} />
           </div>
         </div>
       </section>
