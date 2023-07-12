@@ -24,6 +24,7 @@ export default async function Home() {
 
   console.log('AAAAAA: ',latestContributions.data)
 
+
   const background =
     c.data.background_url !== null
       ? c.data.background_url

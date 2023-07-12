@@ -51,7 +51,7 @@ export async function getLatestContributions() {
   try {
     const res = await axios.get(apiUrl + "/getlatestcontributions?key=" + apiKey);
 
-    return res;
+    return res.data;
   } catch (error) {
     console.log("Error: ",error)
   }

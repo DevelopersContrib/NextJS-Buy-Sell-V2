@@ -4,6 +4,7 @@ import useEffect from "react";
 import LoadingState from "./LoadingState";
 
 const ContributionComponent = ({contributions}) => {
+  console.log()
   return (
     <div className="col-xl-4 offset-xl-8">
       <div className="card text-bg-light mb-3">
