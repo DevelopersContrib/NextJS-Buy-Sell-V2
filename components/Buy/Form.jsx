@@ -45,35 +45,7 @@ const BuyForm = ({ domain, countries, setSuccess }) => {
   const [data, setData] = useState(formData);
   const [errors, setErrors] = useState(initialErrors);
 
-  const validateForm = () => {
-    const dataErrors = {
-      amountError:
-        (data.amount ? "" : "Amount is required.") ||
-        (/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\\s\\./0-9]*$/g.test(data.amount)
-          ? ""
-          : "Invalid Amount."),
-      firstNameError: data.firstName ? "" : "First name is required.",
-      lastNameError: data.lastName ? "" : "Last name is required.",
-      emailError:
-        (data.email ? "" : "Email is required") ||
-        (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) ? "" : "Invalid Email"),
-      passwordError: data.password ? "" : "Password is required.",
-      confirmPasswordError:
-        (data.confirmPassword ? "" : "Confirm password is required.") ||
-        (data.password !== data.confirmPassword
-          ? "Confirm password did not match."
-          : ""),
-      countryError: data.country_id ? "" : "Country is required.",
-      phoneError:
-        (data.phone ? "" : "Phone is required.") ||
-        (/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\\s\\./0-9]*$/g.test(data.phone)
-          ? ""
-          : "Invalid Phone."),
-      messageError: data.message ? "" : "Message is required.",
-      contactByError: data.contactBy ? "" : "Contact method is required.",
-    };
-    setErrors(dataErrors);
-  };
+  
 
   const handleCountryChange = (e) => {
     const val = e.target.value.split("::");
@@ -132,6 +104,35 @@ const BuyForm = ({ domain, countries, setSuccess }) => {
   };
 
   useEffect(() => {
+    const validateForm = () => {
+      const dataErrors = {
+        amountError:
+          (data.amount ? "" : "Amount is required.") ||
+          (/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\\s\\./0-9]*$/g.test(data.amount)
+            ? ""
+            : "Invalid Amount."),
+        firstNameError: data.firstName ? "" : "First name is required.",
+        lastNameError: data.lastName ? "" : "Last name is required.",
+        emailError:
+          (data.email ? "" : "Email is required") ||
+          (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) ? "" : "Invalid Email"),
+        passwordError: data.password ? "" : "Password is required.",
+        confirmPasswordError:
+          (data.confirmPassword ? "" : "Confirm password is required.") ||
+          (data.password !== data.confirmPassword
+            ? "Confirm password did not match."
+            : ""),
+        countryError: data.country_id ? "" : "Country is required.",
+        phoneError:
+          (data.phone ? "" : "Phone is required.") ||
+          (/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\\s\\./0-9]*$/g.test(data.phone)
+            ? ""
+            : "Invalid Phone."),
+        messageError: data.message ? "" : "Message is required.",
+        contactByError: data.contactBy ? "" : "Contact method is required.",
+      };
+      setErrors(dataErrors);
+    };
     validateForm();
     // validateErrors();
   }, [data]);
