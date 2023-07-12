@@ -31,6 +31,19 @@ export async function getScript(url) {
   }
 }
 
+export async function getTopsites() {
+  const domain = getDomain();
+  const url = process.env.CONTRIB_API1_TOPSITES+`&domain=${domain}`
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 export async function checkContribEmails(email) {
   let apiUrl = process.env.CONTRIB_URL;
   try {
