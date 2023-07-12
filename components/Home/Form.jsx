@@ -25,17 +25,17 @@ const Form = ({ domain }) => {
     setPartnerType(event.target.value);
   };
 
-  const setUrlQuery = () => {
-    let urlQuery =
-      selectedOption === "buy"
-        ? `/${selectedOption}?offer=${offerAmount}`
-        : `/${selectedOption}?type=${partnerType}`;
-    setUrl(urlQuery);
-  };
+  
 
   useEffect(() => {
+    const setUrlQuery = () => {
+      let urlQuery =
+        selectedOption === "buy"
+          ? `/${selectedOption}?offer=${offerAmount}`
+          : `/${selectedOption}?type=${partnerType}`;
+      setUrl(urlQuery);
+    };
     setUrlQuery();
-    console.log(url);
   }, [selectedOption, offerAmount, url, partnerType]);
   return (
     <>
