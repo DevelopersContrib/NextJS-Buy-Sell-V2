@@ -16,7 +16,7 @@ const TopDomainsComponent = ({ domains }) => {
         <div className="row">
           <div className="col-xl-12">
             <div className="title-center-circle">
-              <h2 className="tw-font-extrabold tw-text-5xl text-uppercase text-center">
+              <h2 className="tw-font-medium tw-text-5xl text-uppercase text-center">
                 OUR TOP BRANDS
               </h2>
             </div>
