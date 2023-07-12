@@ -4,7 +4,6 @@ import useEffect from "react";
 import LoadingState from "./LoadingState";
 
 const ContributionComponent = ({contributions}) => {
-  console.log()
   return (
     <div className="col-xl-4 offset-xl-8">
       <div className="card text-bg-light mb-3">
@@ -13,12 +12,12 @@ const ContributionComponent = ({contributions}) => {
           <ul className="list-unstyled">
             {
               !contributions ? <LoadingState />:(
-                contributions.data.map(c => {
-                  <li key={c.MemberId}>
+                contributions.data.map(c => (
+                  <li key={c.point_id}>
                     <div className="d-flex">
                       <div className="flex-shrink-0">
                         <Image
-                          src="https://contrib.com/img/timthumb.php?src=https://www.contrib.com/img/avatar0.jpg&w=115&h=115"
+                          src={!c.profile_image ? 'https://contrib.com/img/timthumb.php?src=https://www.contrib.com/img/avatar0.jpg&w=115&h=115':'https://www.contrib.com/img/timthumb.php?src=uploads/profile/'+c.profile_image+'&w=115&h=115'}
                           width={65}
                           height={65}
                           alt=""
@@ -26,16 +25,15 @@ const ContributionComponent = ({contributions}) => {
                         />
                       </div>
                       <div className="flex-grow-1 ms-3">
-                        <h5 className="text-capitalize mt-0">john doe</h5>
+                        <h5 className="text-capitalize mt-0">{c.member}</h5>
                         <p className="small mb-0">
-                          Has contributed marketing on &nbsp;{" "}
-                          <a href="/">staffingnetworks.com</a>
+                          {c.message}
                         </p>
-                        <p className="text-danger tw-font-semibold">20 pts</p>
+                        <p className="text-danger tw-font-semibold">{c.points} pts</p>
                       </div>
                     </div>
                   </li>
-                })
+                ))
               )
             }
           </ul>

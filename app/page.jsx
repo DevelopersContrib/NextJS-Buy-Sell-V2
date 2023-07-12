@@ -21,10 +21,6 @@ export default async function Home() {
   const domain = getDomain();
   const topDomains = await getTopsites();
   const latestContributions = await getLatestContributions();
-
-  console.log('AAAAAA: ',latestContributions.data)
-
-
   const background =
     c.data.background_url !== null
       ? c.data.background_url
