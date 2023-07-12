@@ -11,7 +11,7 @@ export function getDomain() {
 
 export async function getData() {
   const domain = getDomain();
-  const url = process.env.CONTRIB_API1 + `&domain=${domain}`;
+  const url = process.env.CONTRIB_API1_DOMAINS + `&domain=${domain}`;
   const res = await fetch(url);
 
   if (!res.ok) {
@@ -33,7 +33,7 @@ export async function getScript(url) {
 
 export async function getTopsites() {
   const domain = getDomain();
-  const url = process.env.CONTRIB_API1_TOPSITES+`&domain=${domain}`
+  const url = process.env.CONTRIB_API1_TOPSITES + `&domain=${domain}`;
   const res = await fetch(url);
 
   if (!res.ok) {
@@ -42,6 +42,19 @@ export async function getTopsites() {
   }
 
   return res.json();
+}
+
+export async function getLatestContributions() {
+  const apiKey = process.env.CONTRIB_API1_KEY;
+  const apiUrl = process.env.CONTRIB_API1_MEMBERS;
+
+  try {
+    const res = await axios.get(apiUrl + "/getlatestcontributions?key=" + apiKey);
+
+    return res;
+  } catch (error) {
+    console.log("Error: ",error)
+  }
 }
 
 export async function checkContribEmails(email) {
