@@ -47,9 +47,24 @@ export async function getTopsites() {
 export async function getLatestContributions() {
   const apiKey = process.env.CONTRIB_API1_KEY;
   const apiUrl = process.env.CONTRIB_API1_MEMBERS;
+  const domain = getDomain();
 
   try {
-    const res = await axios.get(apiUrl + "/getlatestcontributions?key=" + apiKey);
+    const res = await axios.get(apiUrl + "/getlatestcontributions?domain="+domain+"&key=" + apiKey);
+
+    return res.data;
+  } catch (error) {
+    console.log("Error: ",error)
+  }
+}
+
+export async function getLatestContributors() {
+  const apiKey = process.env.CONTRIB_API1_KEY;
+  const apiUrl = process.env.CONTRIB_API1_MEMBERS;
+  const domain = getDomain();
+
+  try {
+    const res = await axios.get(apiUrl + "/getlatestcontributors?domain="+domain+"&key=" + apiKey);
 
     return res.data;
   } catch (error) {

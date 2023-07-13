@@ -4,13 +4,14 @@ import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import TopDomainsComponent from "../components/TopDomainsComponent";
 import LatestContributionsComponent from "../components/LatestContributionsComponent";
-import LatestContributorComponent from "../components/LatestContributorComponent";
+import LatestContributorsComponent from "../components/LatestContributorsComponent";
 import {
   getData,
   getDomain,
   getScript,
   getTopsites,
   getLatestContributions,
+  getLatestContributors
 } from "../lib/data";
 import Ai from "../components/Ai";
 import ScriptLoader from "../components/ScriptLoader";
@@ -22,6 +23,8 @@ export default async function Home() {
   const domain = getDomain();
   const topDomains = await getTopsites();
   const latestContributions = await getLatestContributions();
+  const latestContributors = await getLatestContributors();
+
   const background =
     c.data.background_url !== null
       ? c.data.background_url
@@ -122,7 +125,7 @@ export default async function Home() {
               </h2>
             </div>
             <div className="col-xl-4 offset-xl-2">
-              <LatestContributorComponent />
+              <LatestContributorsComponent contributors={latestContributors} />
             </div>
             <div className="col-xl-4">
               <LatestContributionsComponent contributions={latestContributions} />
