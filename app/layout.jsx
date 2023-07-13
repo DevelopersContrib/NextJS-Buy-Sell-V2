@@ -6,8 +6,8 @@ import Script from 'next/script';
 export async function generateMetadata({ params, searchParams }, parent) {
   const c = await getData();
 	return {
-		title: c.data.title===''?'Welcome to '+c.data.domainName:c.data.title,
-		description: c.data.description,
+		title: c.data.title==='' || c.data.title==null ?'Welcome to '+c.data.domainName:c.data.title,
+		description: c.data.description==='' ? 'Join a vibrant community of developers, influencers, and entrepreneurs on '+c.data.domainName+', all using the versatile CONTRIB token to power their token economies!':c.data.description,
     keywords: c.data.keywords,
     author: c.data.author
 	}

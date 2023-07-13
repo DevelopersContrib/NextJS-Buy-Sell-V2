@@ -7,7 +7,7 @@ import LoadingState from "./LoadingState";
 const LatestContributorComponent = ({ contributors }) => {
   return (
     <div className="card text-bg-light mb-3">
-      <div className="card-header">Latest Contributor</div>
+      <div className="card-header">Latest Contributors</div>
       <div className="card-body tw-overflow-y-auto tw-max-h-[350px]">
         <ul className="list-unstyled">
           {
