@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import TopDomainsComponent from "../components/TopDomainsComponent";
 import LatestContributionsComponent from "../components/LatestContributionsComponent";
+import LatestContributorComponent from "../components/LatestContributorComponent";
 import {
   getData,
   getDomain,
@@ -27,7 +28,7 @@ export default async function Home() {
       : "https://cdn.vnoc.com/background/tech4.jpg";
   const html = await getScript(
     "https://e7lq80c199.execute-api.us-west-2.amazonaws.com/api1?key=5c1bde69a9e783c7edc2e603d8b25023&request=getcontent&url=" +
-      encodeURIComponent(domain)
+    encodeURIComponent(domain)
   );
 
   return (
@@ -112,15 +113,20 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="tw-py-12 tw-bg-[#fafafa]">
+      <section className="tw-py-24 tw-bg-[#fafafa]">
         <div className="container">
           <div className="row">
             <div className="col-xl-12 text-center">
-              <h2 className="tw-font-medium tw-text-5xl text-uppercase text-center mb-3">
+              <h2 className="tw-font-medium tw-text-5xl text-uppercase text-center mb-5">
                 {domain} partners
               </h2>
             </div>
-            <LatestContributionsComponent contributions={latestContributions} />
+            <div className="col-xl-4 offset-xl-2">
+              <LatestContributorComponent />
+            </div>
+            <div className="col-xl-4">
+              <LatestContributionsComponent contributions={latestContributions} />
+            </div>
           </div>
         </div>
       </section>
