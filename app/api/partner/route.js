@@ -27,8 +27,6 @@ export const POST = async (request) => {
 			params.append('companydesc', data.companydesc);
 			
 			const saveRes = await axios.post('https://www.contrib.com/forms/save_partner', params);
-
-			console.log('saveRes:',saveRes)
 			
 			if(saveRes.data.success){
 				const emailCode = saveRes.data.email;
