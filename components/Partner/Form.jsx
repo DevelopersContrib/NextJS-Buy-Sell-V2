@@ -31,7 +31,7 @@ export default function PartnerForm({
     website: "",
     phone: "",
     country_id: countries[0].country_id,
-    country: "",
+    country: countries[0].name,
     city: "",
 
     //Step 3

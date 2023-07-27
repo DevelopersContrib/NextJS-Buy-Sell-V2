@@ -60,7 +60,6 @@ export default function Step2({
               value={data.country_id}
               className="form-select form-select-lg"
             >
-              <option value=""></option>
               {countries.map((country) => (
                 <option key={country.country_id} value={country.country_id}>
                   {country.name}
