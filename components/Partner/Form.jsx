@@ -30,8 +30,8 @@ export default function PartnerForm({
     //Step 2
     website: "",
     phone: "",
-    country: countries[0].country_id,
-    country_text: "",
+    country_id: countries[0].country_id,
+    country: "",
     city: "",
 
     //Step 3
@@ -110,7 +110,7 @@ export default function PartnerForm({
             (/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\\s\\./0-9]*$/g.test(data.phone)
               ? ""
               : "Invalid Phone."),
-          countryError: data.country ? "" : "Country is required.",
+          countryError: data.country_id ? "" : "Country is required.",
           cityError: data.city ? "" : "City is required.",
         };
       } else if (data.step === 3) {
@@ -137,8 +137,8 @@ export default function PartnerForm({
       return {
         ...prevData,
         ...{
-          country: e.target.value,
-          country_text: e.target.options[e.target.selectedIndex].text,
+          country_id: e.target.value,
+          country: e.target.options[e.target.selectedIndex].text,
         },
       };
     });
