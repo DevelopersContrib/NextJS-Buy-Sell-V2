@@ -45,6 +45,38 @@ const Footer = ({domain}) => {
                   </span>
                 </Link>
               </li>
+              <li className="list-inline-item">
+                <Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} className="tw-no-underline tw-capitalize tw-text-white tw-inline-flex tw-items-center hover:tw-text-white/75">
+                  <FontAwesomeIcon icon={faBookmark} className="tw-w-4 tw-h-4 tw-mr-2" />
+                  <span>
+                    Build
+                  </span>
+                </Link>
+              </li>
+              <li className="list-inline-item">
+                <Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} className="tw-no-underline tw-capitalize tw-text-white tw-inline-flex tw-items-center hover:tw-text-white/75">
+                  <FontAwesomeIcon icon={faBookmark} className="tw-w-4 tw-h-4 tw-mr-2" />
+                  <span>
+                    invest
+                  </span>
+                </Link>
+              </li>
+              <li className="list-inline-item">
+                <Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} className="tw-no-underline tw-capitalize tw-text-white tw-inline-flex tw-items-center hover:tw-text-white/75">
+                  <FontAwesomeIcon icon={faBookmark} className="tw-w-4 tw-h-4 tw-mr-2" />
+                  <span>
+                    manage
+                  </span>
+                </Link>
+              </li>
+              <li className="list-inline-item">
+                <Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} className="tw-no-underline tw-capitalize tw-text-white tw-inline-flex tw-items-center hover:tw-text-white/75">
+                  <FontAwesomeIcon icon={faBookmark} className="tw-w-4 tw-h-4 tw-mr-2" />
+                  <span>
+                    monetize
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
