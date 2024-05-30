@@ -12,7 +12,7 @@ export function getDomain() {
 export async function getData() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1_DOMAINS + `&domain=${domain}`;
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 3600 } });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -23,7 +23,7 @@ export async function getData() {
 
 export async function getScript(url) {
   try {
-    const res = await axios.get(url);
+    const res = await fetch(url);
     return res.data;
   } catch (e) {
     console.log("error getScript", e);
@@ -34,7 +34,7 @@ export async function getScript(url) {
 export async function getTopsites() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1_TOPSITES + `&domain=${domain}`;
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 3600 } });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -50,7 +50,7 @@ export async function getLatestContributions() {
   const domain = getDomain();
 
   try {
-    const res = await axios.get(apiUrl + "/getlatestcontributions?domain="+domain+"&key=" + apiKey);
+    const res = await fetch(apiUrl + "/getlatestcontributions?domain="+domain+"&key=" + apiKey, { next: { revalidate: 3600 } });
 
     return res.data;
   } catch (error) {
@@ -64,8 +64,7 @@ export async function getLatestContributors() {
   const domain = getDomain();
 
   try {
-    const res = await axios.get(apiUrl + "/getlatestcontributors?domain="+domain+"&key=" + apiKey);
-
+    const res = await axios.get(apiUrl + "/getlatestcontributors?domain="+domain+"&key=" + apiKey, { next: { revalidate: 3600 } });
     return res.data;
   } catch (error) {
     console.log("Error: ",error)

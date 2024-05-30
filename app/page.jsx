@@ -29,11 +29,9 @@ export default async function Home() {
     c.data.background_url !== null
       ? c.data.background_url
       : "https://cdn.vnoc.com/background/tech4.jpg";
-  const html = await getScript(
-    "https://e7lq80c199.execute-api.us-west-2.amazonaws.com/api1?key=5c1bde69a9e783c7edc2e603d8b25023&request=getcontent&url=" +
-    encodeURIComponent(domain)
-  );
+      const html = await getScript("https://e7lq80c199.execute-api.us-west-2.amazonaws.com/api1?key=5c1bde69a9e783c7edc2e603d8b25023&request=getcontent&url=" + domain)
 
+  
   return (
     <>
       <Navigation domain={domain} />
@@ -139,7 +137,7 @@ export default async function Home() {
           <Ai />
         </div>
       </section>
-      <ScriptLoader html={html.data.content} />
+      
       <Footer domain={domain} />
     </>
   );
