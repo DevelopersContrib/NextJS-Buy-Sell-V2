@@ -5,6 +5,7 @@ import Logo from "../components/Logo";
 import TopDomainsComponent from "../components/TopDomainsComponent";
 import LatestContributionsComponent from "../components/LatestContributionsComponent";
 import LatestContributorsComponent from "../components/LatestContributorsComponent";
+import BlogSection from "@/components/BlogSection";
 import {
   getData,
   getDomain,
@@ -130,6 +131,9 @@ export default async function Home() {
             </div>
           </div>
         </div>
+      </section>
+      <section className="tw-py-24 tw-bg-[#fafafa]">
+      <BlogSection/>
       </section>
       <TopDomainsComponent domains={topDomains} />
       <section className="tw-bg-gray-100 tw-py-12">
