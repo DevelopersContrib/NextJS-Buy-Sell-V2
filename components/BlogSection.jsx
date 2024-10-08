@@ -50,7 +50,7 @@ const BlogSection = () => {
             >
               <div className="card h-100">
                 <Image
-                  src={src + post.image_base64}
+                  src={post.image_url}
                   alt={post.image_caption}
                   width={0}
                   height={0}
