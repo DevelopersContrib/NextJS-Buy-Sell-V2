@@ -58,13 +58,13 @@ export default async function Home() {
             <div className="col-xl-8">
               <p>
                 Your site is a reflection of your brand, invest in an impactful
-                domain name like Euroinvestment.com that projects your voice.
+                domain name like {domain} that projects your voice.
                 You can make an offer, partner, lease or join the
-                Euroinvestment.com team today at Contrib.
+                {domain} team today at Contrib.
               </p>
               <p>
                 Our Contrib community has 150,000+ contributors who share their
-                original content for Euroinvestment.com.
+                original content for {domain}.
               </p>
               <div className="pt-lg-3 row">
                 <div className="text-center mb-3 col-lg-4">
