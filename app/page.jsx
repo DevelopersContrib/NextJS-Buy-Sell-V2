@@ -18,6 +18,8 @@ import Ai from "../components/Ai";
 import ScriptLoader from "../components/ScriptLoader";
 import Image from "next/image";
 import FormOptions from "../components/Home/Form";
+import StaticCTAButton from "@/components/LatestCTA";
+import FomoPopup from "@/components/TokenSalePopup";
 
 export default async function Home() {
   const c = await getData();
@@ -115,33 +117,14 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="tw-py-24 tw-bg-[#fafafa]">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-12 text-center">
-              <h2 className="tw-font-medium tw-text-5xl text-uppercase text-center mb-5">
-                {domain} partners
-              </h2>
-            </div>
-            <div className="col-xl-4 offset-xl-2">
-              <LatestContributorsComponent contributors={latestContributors} />
-            </div>
-            <div className="col-xl-4">
-              <LatestContributionsComponent contributions={latestContributions} />
-            </div>
-          </div>
-        </div>
-      </section>
+
+   
+      <TopDomainsComponent domains={topDomains} />
+      <StaticCTAButton />
+      <FomoPopup />
       <section className="tw-py-24 tw-bg-[#fafafa]">
       <BlogSection/>
       </section>
-      <TopDomainsComponent domains={topDomains} />
-      <section className="tw-bg-gray-100 tw-py-12">
-        <div className="container">
-          <Ai />
-        </div>
-      </section>
-      
       <Footer domain={domain} />
     </>
   );
