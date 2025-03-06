@@ -6,13 +6,14 @@ import TopDomainsComponent from "../components/TopDomainsComponent";
 import LatestContributionsComponent from "../components/LatestContributionsComponent";
 import LatestContributorsComponent from "../components/LatestContributorsComponent";
 import BlogSection from "@/components/BlogSection";
+import BlogList from "@/components/Blog/BlogList";
 import {
   getData,
   getDomain,
   getScript,
   getTopsites,
   getLatestContributions,
-  getLatestContributors
+  getLatestContributors,
 } from "../lib/data";
 import Ai from "../components/Ai";
 import ScriptLoader from "../components/ScriptLoader";
@@ -32,9 +33,11 @@ export default async function Home() {
     c.data.background_url !== null
       ? c.data.background_url
       : "https://cdn.vnoc.com/background/tech4.jpg";
-      const html = await getScript("https://e7lq80c199.execute-api.us-west-2.amazonaws.com/api1?key=5c1bde69a9e783c7edc2e603d8b25023&request=getcontent&url=" + domain)
+  const html = await getScript(
+    "https://e7lq80c199.execute-api.us-west-2.amazonaws.com/api1?key=5c1bde69a9e783c7edc2e603d8b25023&request=getcontent&url=" +
+      domain
+  );
 
-  
   return (
     <>
       <Navigation domain={domain} />
@@ -46,7 +49,10 @@ export default async function Home() {
         <div className="container tw-relative">
           <div className="row tw-mb-8">
             <div className="col-xl-8">
-              <Logo domain={domain} logo={c.data.logo} />
+              <Logo
+                domain={domain}
+                logo={c.data.logo}
+              />
             </div>
             <div className="col-xl-4 tw-relative">
               <FormOptions domain={domain} />
@@ -59,14 +65,13 @@ export default async function Home() {
           <div className="row">
             <div className="col-xl-8">
               <p>
-                Your site is a reflection of your brand, invest in an impactful
-                domain name like {domain} that projects your voice.
-                You can make an offer, partner, lease or join the
+                Your site is a reflection of your brand, invest in an impactful domain name like{" "}
+                {domain} that projects your voice. You can make an offer, partner, lease or join the
                 {domain} team today at Contrib.
               </p>
               <p>
-                Our Contrib community has 150,000+ contributors who share their
-                original content for {domain}.
+                Our Contrib community has 150,000+ contributors who share their original content for{" "}
+                {domain}.
               </p>
               <div className="pt-lg-3 row">
                 <div className="text-center mb-3 col-lg-4">
@@ -79,8 +84,8 @@ export default async function Home() {
                   />
                   <h4>Make An Offer</h4>
                   <p className="small">
-                    Find a domain and decide to buy,lease or rent it. Submit
-                    your best offer for the owner&apos;s consideration.
+                    Find a domain and decide to buy,lease or rent it. Submit your best offer for the
+                    owner&apos;s consideration.
                   </p>
                 </div>
                 <div className="text-center mb-3 col-lg-4">
@@ -93,9 +98,8 @@ export default async function Home() {
                   />
                   <h4>Negotiate the price</h4>
                   <p className="small">
-                    Your offer may be accepted, countered or declined.
-                    Negotiations can take as little as one day or up to a few
-                    weeks.
+                    Your offer may be accepted, countered or declined. Negotiations can take as
+                    little as one day or up to a few weeks.
                   </p>
                 </div>
                 <div className="text-center mb-3 col-lg-4">
@@ -108,8 +112,8 @@ export default async function Home() {
                   />
                   <h4>Make a deal</h4>
                   <p className="small">
-                    Once you have agreed on the price, We will facilitate the
-                    contract, payment and transfer or use of the domain name.
+                    Once you have agreed on the price, We will facilitate the contract, payment and
+                    transfer or use of the domain name.
                   </p>
                 </div>
               </div>
@@ -118,12 +122,12 @@ export default async function Home() {
         </div>
       </section>
 
-   
       <TopDomainsComponent domains={topDomains} />
+      <BlogList />
       <StaticCTAButton />
       <FomoPopup />
       <section className="tw-py-24 tw-bg-[#fafafa]">
-      <BlogSection/>
+        <BlogSection />
       </section>
       <Footer domain={domain} />
     </>
