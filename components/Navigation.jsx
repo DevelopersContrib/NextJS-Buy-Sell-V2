@@ -15,12 +15,13 @@ const Navigation = ({ domain }) => {
         <div className="tw-bg-black tw-text-white tw-text-sm tw-py-2 tw-flex tw-justify-between tw-items-center tw-px-4 lg:tw-px-8">
           <div>
             <a
-              href="https://agentdao.com"
+              href="https://www.vnoc.com"
               target="_blank"
+              alt="Next Gen Digital Asset Platform"
               rel="noopener noreferrer"
               className="nav-link tw-text-blue-600 tw-font-semibold hover:tw-underline"
             >
-              Powered by AgentDao
+              Powered by VNOC
             </a>
           </div>
 
