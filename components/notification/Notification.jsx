@@ -83,7 +83,7 @@ const Notification = () => {
             <div className="lg:tw-w-16 lg:tw-h-16 md:tw-w-12 md:tw-h-12 sm:tw-w-10 sm:tw-h-10 tw-rounded-full tw-overflow-hidden tw-flex-shrink-0 tw-border tw-border-gray-200">
               <Image
                 src={notifications[currentIndex].avatar}
-                alt="Map"
+                alt={`image-${notifications[currentIndex].id}`}
                 width={64}
                 height={64}
                 className="tw-object-cover"
