@@ -1,26 +1,22 @@
-import Link from "next/link";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
-import Logo from "../components/Logo";
-import TopDomainsComponent from "../components/TopDomainsComponent";
-import LatestContributionsComponent from "../components/LatestContributionsComponent";
-import LatestContributorsComponent from "../components/LatestContributorsComponent";
-import BlogSection from "@/components/BlogSection";
 import BlogList from "@/components/Blog/BlogList";
+import BlogSection from "@/components/BlogSection";
+import StaticCTAButton from "@/components/LatestCTA";
+import Notification from "@/components/notification/Notification";
+import Image from "next/image";
+import Footer from "../components/Footer";
+import FormOptions from "../components/Home/Form";
+import Logo from "../components/Logo";
+import Navigation from "../components/Navigation";
+import TopDomainsComponent from "../components/TopDomainsComponent";
 import {
   getData,
   getDomain,
-  getScript,
-  getTopsites,
   getLatestContributions,
   getLatestContributors,
+  getScript,
+  getTopsites,
 } from "../lib/data";
-import Ai from "../components/Ai";
-import ScriptLoader from "../components/ScriptLoader";
-import Image from "next/image";
-import FormOptions from "../components/Home/Form";
-import StaticCTAButton from "@/components/LatestCTA";
-import FomoPopup from "@/components/TokenSalePopup";
+// import FomoPopup from "@/components/TokenSalePopup";
 
 export default async function Home() {
   const c = await getData();
@@ -125,7 +121,8 @@ export default async function Home() {
       <TopDomainsComponent domains={topDomains} />
       <BlogList />
       <StaticCTAButton />
-      <FomoPopup />
+      {/* <FomoPopup /> */}
+      <Notification />
       <section className="tw-py-24 tw-bg-[#fafafa]">
         <BlogSection />
       </section>
