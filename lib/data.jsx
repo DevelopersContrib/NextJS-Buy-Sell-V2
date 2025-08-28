@@ -17,7 +17,7 @@ const res = await fetch(url, {
   headers: {
     'User-Agent': 'Mozilla/5.0'
   },
-  next: { revalidate: 300 }
+  next: { revalidate: 3600 }
 });
 
   if (!res.ok) {
