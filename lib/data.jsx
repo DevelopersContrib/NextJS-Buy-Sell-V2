@@ -18,7 +18,7 @@ const res = await fetch(url, {
     'User-Agent': 'Mozilla/5.0'
   },
   next: { revalidate: 3600 }
-});
+}, 30000);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
