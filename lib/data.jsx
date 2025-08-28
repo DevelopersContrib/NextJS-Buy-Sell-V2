@@ -16,7 +16,8 @@ const res = await fetch(url, {
   mode: 'cors',
   headers: {
     'User-Agent': 'Mozilla/5.0'
-  }
+  },
+  next: { revalidate: 300 }
 });
 
   if (!res.ok) {
