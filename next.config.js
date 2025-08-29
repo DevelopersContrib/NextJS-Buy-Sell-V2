@@ -21,11 +21,11 @@ const nextConfig = {
     API_URL: process.env.API_URL,
     API_KEY: process.env.API_KEY,
   },
-
   webpack: (config) => {
-    // ensures old assets (like css/js chunks) are removed on build
-    config.output.clean = true;
     return config;
+  },
+  experimental: {
+    webpackBuildWorker: true,
   },
 };
 
