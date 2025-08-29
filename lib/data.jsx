@@ -88,7 +88,15 @@ export async function getLatestContributors() {
   const domain = getDomain();
 
   try {
-    const res = await axios.get(apiUrl + "/getlatestcontributors?domain="+domain+"&key=" + apiKey, { next: { revalidate: 3600 } });
+   
+    const res = await fetch(apiUrl + "/getlatestcontributors?domain="+domain+"&key=" + apiKey, {
+  mode: 'cors',
+  headers: {
+    'User-Agent': 'Mozilla/5.0'
+  },
+  next: { revalidate: 3600 }
+}, 30000);
+    
     return res.data;
   } catch (error) {
     console.log("Error: ",error)
