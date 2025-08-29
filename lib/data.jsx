@@ -29,7 +29,13 @@ const res = await fetch(url, {
 
 export async function getScript(url) {
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, {
+  mode: 'cors',
+  headers: {
+    'User-Agent': 'Mozilla/5.0'
+  },
+  next: { revalidate: 3600 }
+}, 30000);
     return res.data;
   } catch (e) {
     console.log("error getScript", e);
@@ -40,7 +46,13 @@ export async function getScript(url) {
 export async function getTopsites() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1_TOPSITES + `&domain=${domain}`;
-  const res = await fetch(url, { next: { revalidate: 3600 } });
+  const res = await fetch(url, {
+  mode: 'cors',
+  headers: {
+    'User-Agent': 'Mozilla/5.0'
+  },
+  next: { revalidate: 3600 }
+}, 30000);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -56,7 +68,13 @@ export async function getLatestContributions() {
   const domain = getDomain();
 
   try {
-    const res = await fetch(apiUrl + "/getlatestcontributions?domain="+domain+"&key=" + apiKey, { next: { revalidate: 3600 } });
+     const res = await fetch(apiUrl + "/getlatestcontributions?domain="+domain+"&key=" + apiKey, {
+  mode: 'cors',
+  headers: {
+    'User-Agent': 'Mozilla/5.0'
+  },
+  next: { revalidate: 3600 }
+}, 30000);
 
     return res.data;
   } catch (error) {
@@ -95,8 +113,14 @@ export async function checkContribEmails(email) {
 export async function getBlogs() {
   const domain = getDomain();
   const url = process.env.GET_BLOGS+`&domain=${domain}`
-  const res = await fetch(url, { next: { revalidate: 3600 } });
- 
+  
+      const res = await fetch(url, {
+  mode: 'cors',
+  headers: {
+    'User-Agent': 'Mozilla/5.0'
+  },
+  next: { revalidate: 3600 }
+}, 30000);
   
   if (!res.ok){
       // This will activate the closest `error.js` Error Boundary
