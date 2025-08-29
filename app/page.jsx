@@ -119,12 +119,12 @@ export default async function Home() {
       </section>
 
       <TopDomainsComponent domains={topDomains} />
-      <BlogList />
+      {/* <BlogList /> */}
       <StaticCTAButton />
       {/* <FomoPopup /> */}
       <Notification />
       <section className="tw-py-24 tw-bg-[#fafafa]">
-        <BlogSection />
+        {/* <BlogSection /> */}
       </section>
       <Footer domain={domain} />
     </>
