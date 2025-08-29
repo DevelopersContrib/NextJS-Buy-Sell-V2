@@ -1,24 +1,28 @@
 import axios from "axios";
 import { headers } from "next/headers";
+let DOMAIN = process.env.NEXT_PUBLIC_VERCEL_URL;
 
 export function getDomain() {
-  let DOMAIN = process.env.NEXT_PUBLIC_VERCEL_URL;
   const headersList = headers();
   const referrer = headersList.get("host");
-  const domainName = referrer.includes("localhost") ? DOMAIN : referrer;
-  return domainName.replace("www.", "");
+  const domainName = referrer.includes("localhost") ? DOMAIN : referrer.replace("www.", "");
+  return domainName;
 }
 
 export async function getData() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1_DOMAINS + `&domain=${domain}`;
-const res = await fetch(url, {
-  mode: 'cors',
-  headers: {
-    'User-Agent': 'Mozilla/5.0'
-  },
-  next: { revalidate: 3600 }
-}, 30000);
+  const res = await fetch(
+    url,
+    {
+      mode: "cors",
+      headers: {
+        "User-Agent": "Mozilla/5.0",
+      },
+      next: { revalidate: 3600 },
+    },
+    30000
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -29,13 +33,17 @@ const res = await fetch(url, {
 
 export async function getScript(url) {
   try {
-    const res = await fetch(url, {
-  mode: 'cors',
-  headers: {
-    'User-Agent': 'Mozilla/5.0'
-  },
-  next: { revalidate: 3600 }
-}, 30000);
+    const res = await fetch(
+      url,
+      {
+        mode: "cors",
+        headers: {
+          "User-Agent": "Mozilla/5.0",
+        },
+        next: { revalidate: 3600 },
+      },
+      30000
+    );
     return res.data;
   } catch (e) {
     console.log("error getScript", e);
@@ -46,13 +54,17 @@ export async function getScript(url) {
 export async function getTopsites() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1_TOPSITES + `&domain=${domain}`;
-  const res = await fetch(url, {
-  mode: 'cors',
-  headers: {
-    'User-Agent': 'Mozilla/5.0'
-  },
-  next: { revalidate: 3600 }
-}, 30000);
+  const res = await fetch(
+    url,
+    {
+      mode: "cors",
+      headers: {
+        "User-Agent": "Mozilla/5.0",
+      },
+      next: { revalidate: 3600 },
+    },
+    30000
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -68,17 +80,21 @@ export async function getLatestContributions() {
   const domain = getDomain();
 
   try {
-     const res = await fetch(apiUrl + "/getlatestcontributions?domain="+domain+"&key=" + apiKey, {
-  mode: 'cors',
-  headers: {
-    'User-Agent': 'Mozilla/5.0'
-  },
-  next: { revalidate: 3600 }
-}, 30000);
+    const res = await fetch(
+      apiUrl + "/getlatestcontributions?domain=" + domain + "&key=" + apiKey,
+      {
+        mode: "cors",
+        headers: {
+          "User-Agent": "Mozilla/5.0",
+        },
+        next: { revalidate: 3600 },
+      },
+      30000
+    );
 
     return res.data;
   } catch (error) {
-    console.log("Error: ",error)
+    console.log("Error: ", error);
   }
 }
 
@@ -88,18 +104,21 @@ export async function getLatestContributors() {
   const domain = getDomain();
 
   try {
-   
-    const res = await fetch(apiUrl + "/getlatestcontributors?domain="+domain+"&key=" + apiKey, {
-  mode: 'cors',
-  headers: {
-    'User-Agent': 'Mozilla/5.0'
-  },
-  next: { revalidate: 3600 }
-}, 30000);
-    
+    const res = await fetch(
+      apiUrl + "/getlatestcontributors?domain=" + domain + "&key=" + apiKey,
+      {
+        mode: "cors",
+        headers: {
+          "User-Agent": "Mozilla/5.0",
+        },
+        next: { revalidate: 3600 },
+      },
+      30000
+    );
+
     return res.data;
   } catch (error) {
-    console.log("Error: ",error)
+    console.log("Error: ", error);
   }
 }
 
@@ -120,19 +139,23 @@ export async function checkContribEmails(email) {
 
 export async function getBlogs() {
   const domain = getDomain();
-  const url = process.env.GET_BLOGS+`&domain=${domain}`
-  
-      const res = await fetch(url, {
-  mode: 'cors',
-  headers: {
-    'User-Agent': 'Mozilla/5.0'
-  },
-  next: { revalidate: 3600 }
-}, 30000);
-  
-  if (!res.ok){
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error("Failed to fetch data");
+  const url = process.env.GET_BLOGS + `&domain=${domain}`;
+
+  const res = await fetch(
+    url,
+    {
+      mode: "cors",
+      headers: {
+        "User-Agent": "Mozilla/5.0",
+      },
+      next: { revalidate: 3600 },
+    },
+    30000
+  );
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
   }
 
   return res.json();
