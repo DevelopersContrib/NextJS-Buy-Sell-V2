@@ -118,7 +118,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <TopDomainsComponent domains={topDomains} />
+      {/* <TopDomainsComponent domains={topDomains} /> */}
       {/* <BlogList /> */}
       <StaticCTAButton />
       {/* <FomoPopup /> */}
