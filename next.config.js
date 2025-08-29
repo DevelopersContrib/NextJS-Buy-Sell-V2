@@ -14,12 +14,18 @@ const nextConfig = {
       "manage.vnoc.com",
       "randomuser.me",
       "i.pravatar.cc",
-      "vnocassets.s3.us-east-1.amazonaws.com"
+      "vnocassets.s3.us-east-1.amazonaws.com",
     ],
   },
   env: {
     API_URL: process.env.API_URL,
     API_KEY: process.env.API_KEY,
+  },
+  webpack: (config) => {
+    return config;
+  },
+  experimental: {
+    webpackBuildWorker: true,
   },
 };
 
