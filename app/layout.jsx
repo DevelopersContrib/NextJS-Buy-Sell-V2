@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import { getData, getDomain } from '../lib/data';
 import Script from 'next/script';
+import First100FoundersModalWrapper from "@/components/First100FoundersModalWrapper";
 
 // Async function to generate SEO metadata
 export async function generateMetadata() {
@@ -88,6 +89,7 @@ export default async function RootLayout({ children }) {
         */}
       </head>
       <body>
+        <First100FoundersModalWrapper />
         {children}
       </body>
     </html>
