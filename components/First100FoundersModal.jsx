@@ -247,9 +247,9 @@ export const First100FoundersModal = ({
   console.log('[First100FoundersModal] RENDERING MODAL NOW');
 
   return (
-    <div 
-      className="fixed inset-0 w-full h-full overflow-y-auto"
-      style={{ 
+    <div
+      className="tw-fixed tw-inset-0 tw-w-full tw-h-full tw-overflow-hidden"
+      style={{
         zIndex: zIndex || 99999,
         position: 'fixed',
         top: 0,
@@ -258,140 +258,125 @@ export const First100FoundersModal = ({
         bottom: 0,
         width: '100vw',
         height: '100vh',
+        overflow: 'hidden',
       }}
       data-testid="first100founders-modal"
     >
-      {/* Full-screen animated background - fully opaque */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          width: '100%',
-          height: '100%',
-          background: 'linear-gradient(to bottom right, #581c87, #1e3a8a, #312e81)',
-          zIndex: 1,
-          pointerEvents: 'none'
-        }}
-      >
-        {/* Animated gradient overlays */}
-        <div 
-          className="absolute inset-0"
+      {/* Full-screen animated background - more vibrant */}
+      <div className="tw-absolute tw-inset-0">
+        {/* Custom requested gradient background */}
+        <div
+          className="tw-absolute tw-inset-0"
           style={{
-            background: 'linear-gradient(to right, rgba(234, 179, 8, 0.2), rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2))'
+            background: 'linear-gradient(to right bottom, rgb(88, 28, 135), rgb(30, 58, 138), rgb(49, 46, 129))',
           }}
         ></div>
-        
-        {/* Large decorative blobs */}
-        <div 
-          className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl"
-          style={{
-            background: 'linear-gradient(to bottom right, rgba(234, 179, 8, 0.3), rgba(249, 115, 22, 0.3))'
-          }}
-        ></div>
-        <div 
-          className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl"
-          style={{
-            background: 'linear-gradient(to bottom right, rgba(168, 85, 247, 0.3), rgba(59, 130, 246, 0.3))'
-          }}
-        ></div>
-        <div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl"
-          style={{
-            background: 'linear-gradient(to bottom right, rgba(236, 72, 153, 0.2), rgba(239, 68, 68, 0.2))'
-          }}
-        ></div>
+        <div className="tw-absolute tw-top-0 tw-right-0 tw-w-[32rem] tw-h-[32rem] tw-rounded-full tw-blur-3xl tw-bg-gradient-to-br tw-from-yellow-400 tw-via-orange-400 tw-to-pink-500 tw-opacity-60 tw-animate-pulse"></div>
+        <div className="tw-absolute tw-bottom-0 tw-left-0 tw-w-[32rem] tw-h-[32rem] tw-rounded-full tw-blur-3xl tw-bg-gradient-to-br tw-from-purple-500 tw-via-blue-500 tw-to-cyan-400 tw-opacity-60 tw-animate-pulse"></div>
+        <div className="tw-absolute tw-top-1/2 tw-left-1/2 tw-transform -tw-translate-x-1/2 -tw-translate-y-1/2 tw-w-[28rem] tw-h-[28rem] tw-rounded-full tw-blur-3xl tw-bg-gradient-to-br tw-from-pink-400 tw-via-red-400 tw-to-yellow-300 tw-opacity-40 tw-animate-pulse"></div>
       </div>
 
       {/* Content Container */}
-      <div 
-        className="relative min-h-full flex flex-col items-center justify-center p-4 md:p-8 lg:p-12"
+      <div
+        className="tw-fixed tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center tw-p-4 md:tw-p-8 lg:tw-p-12 tw-h-screen tw-min-h-screen tw-overflow-y-auto"
         style={{
-          position: 'relative',
+          position: 'fixed',
           minHeight: '100vh',
-          width: '100%',
+          height: '100vh',
+          width: '100vw',
           zIndex: 10,
-          pointerEvents: 'auto'
+          pointerEvents: 'auto',
+          overflowY: 'auto',
         }}
       >
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-6 right-6 z-30 p-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300 border border-white/20"
+          className="tw-absolute tw-top-6 tw-right-6 tw-z-30 tw-p-3 tw-rounded-full tw-bg-gradient-to-br tw-from-white/30 tw-to-white/10 tw-backdrop-blur-xl hover:tw-bg-white/40 tw-transition-all tw-duration-300 tw-border tw-border-white/30 tw-shadow-lg"
           aria-label="Close"
           style={{ zIndex: 30 }}
         >
-          <X className="w-6 h-6 text-white" />
+          <X className="tw-w-6 tw-h-6 tw-text-white tw-drop-shadow" />
         </button>
 
         {/* Main Content */}
-        <div className="max-w-6xl w-full space-y-8 md:space-y-12">
+        <div className="tw-max-w-5xl tw-w-full tw-space-y-6 md:tw-space-y-10 tw-pt-36">
           {/* Header Section */}
-          <div className="text-center space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full px-8 py-3 shadow-2xl mb-4">
-              <Sparkles className="w-6 h-6 text-white animate-pulse" />
-              <span className="text-white font-bold text-base uppercase tracking-wider">
+          <div className="tw-text-center tw-space-y-8">
+            <div className="tw-inline-flex tw-items-center tw-space-x-2 tw-bg-gradient-to-r tw-from-yellow-400 tw-via-orange-400 tw-to-pink-500 tw-rounded-full tw-px-10 tw-py-4 tw-shadow-2xl tw-mb-6 tw-border-2 tw-border-yellow-300 tw-animate-pulse">
+              <Sparkles className="tw-w-7 tw-h-7 tw-text-white tw-animate-pulse" />
+              <span className="tw-text-white tw-font-bold tw-text-lg tw-uppercase tw-tracking-wider tw-drop-shadow">
                 {content?.title || 'Limited Time Offer'}
               </span>
             </div>
-            
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-yellow-300 via-white to-blue-300 bg-clip-text text-transparent">
-                🎉 Be One of the
+
+            <h1 className="tw-text-6xl md:tw-text-7xl lg:tw-text-8xl tw-font-extrabold tw-text-white tw-mb-8 tw-leading-tight tw-drop-shadow-xl">
+              <span
+                className="tw-bg-clip-text tw-text-transparent"
+                style={{
+                  background: 'linear-gradient(to right, rgb(253, 224, 71), rgb(255, 255, 255), rgb(147, 197, 253))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textFillColor: 'transparent',
+                }}
+              >
+                🎉 Be One of the 
               </span>
-              <br />
-              <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-red-300 bg-clip-text text-transparent">
+              <span className="">
                 {content?.subtitle || 'First 100 Founders!'}
               </span>
             </h1>
-            
-            <p className="text-2xl md:text-3xl lg:text-4xl text-white/90 font-semibold mb-4">
+
+            <p className="tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white/90 tw-font-semibold tw-mb-2 tw-drop-shadow">
               {content?.description || "Don't wait for the public launch!"}
             </p>
-            <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto">
+            <p className="tw-text-base md:tw-text-lg tw-text-white/80 tw-max-w-3xl tw-mx-auto tw-mb-2">
               Secure your spot now and get exclusive access to VentureOS platform with incredible benefits.
             </p>
           </div>
 
-          {/* Benefits Grid - Larger for full screen */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {/* Benefits Grid - More premium look */}
+          <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-8 md:tw-gap-12">
             {defaultBenefits.map((benefit, index) => (
-              <div 
+              <div
                 key={index}
-                className={`relative p-6 md:p-8 bg-gradient-to-br ${benefit.bg || 'from-gray-500/20 to-gray-600/20'} backdrop-blur-md rounded-2xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl`}
+                className={`tw-relative tw-backdrop-blur-lg tw-rounded-2xl tw-shadow-lg tw-border tw-border-gray-200 tw-px-4 tw-py-5 tw-flex tw-items-center tw-space-x-4 hover:tw-shadow-xl hover:tw-scale-105 tw-transition-all tw-duration-300 tw-bg-gradient-to-br ${benefit.bg ? benefit.bg.replace(/(from-|to-|via-|bg-)/g, 'tw-$&') : 'tw-from-blue-500/20 tw-to-cyan-500/20'}`}
+                style={{ minHeight: '90px' }}
               >
-                <div className="flex items-start space-x-4">
-                  <div className={`flex-shrink-0 ${benefit.color || 'text-white'} p-3 bg-white/10 rounded-xl`}>
-                    {benefit.icon}
-                  </div>
-                  <span className="text-white text-lg md:text-xl font-semibold leading-relaxed">{benefit.text}</span>
+                <div className={`tw-flex-shrink-0 tw-flex tw-items-center tw-justify-center tw-w-10 tw-h-10 tw-bg-white/30 tw-rounded-xl tw-shadow`}
+                  >
+                  {React.cloneElement(benefit.icon, { className: 'tw-w-6 tw-h-6 tw-text-white' })}
                 </div>
+                <span className="tw-text-white tw-text-base md:tw-text-lg tw-font-semibold tw-leading-relaxed">
+                  {benefit.text}
+                </span>
               </div>
             ))}
           </div>
 
-          {/* CTA Buttons - Larger and more prominent */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          {/* CTA Buttons - More prominent */}
+          <div className="tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-justify-center tw-gap-8 tw-mt-6">
             <button
               onClick={handleNavigate}
-              className="group px-12 py-6 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-white font-bold text-xl md:text-2xl rounded-2xl hover:from-purple-700 hover:via-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 transform hover:scale-110 flex items-center space-x-3 w-full sm:w-auto justify-center"
+              className="tw-group tw-px-16 tw-py-7 tw-text-white tw-font-bold tw-text-2xl md:tw-text-3xl tw-rounded-3xl tw-transition-all tw-duration-300 tw-shadow-2xl tw-transform tw-flex tw-items-center tw-space-x-4 tw-w-full sm:tw-w-auto tw-justify-center tw-border-2 tw-border-purple-400"
+              style={{
+                background: 'linear-gradient(to right, #7c3aed, #2563eb, #4f46e5)',
+              }}
             >
               <span>{content?.ctaText || 'Reserve My Founder Spot'}</span>
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+              <ArrowRight className="tw-w-7 tw-h-7 tw-group-hover:tw-translate-x-2 tw-transition-transform" />
             </button>
             <button
               onClick={handleClose}
-              className="px-10 py-6 bg-white/10 backdrop-blur-md text-white font-semibold text-lg rounded-2xl hover:bg-white/20 border border-white/30 transition-all w-full sm:w-auto"
+              className="tw-px-12 tw-py-7 tw-bg-white/20 tw-backdrop-blur-xl tw-text-white tw-font-semibold tw-text-xl tw-rounded-3xl hover:tw-bg-white/30 tw-border-2 tw-border-white/40 tw-transition-all tw-w-full sm:tw-w-auto tw-shadow-md"
             >
               {content?.dismissText || 'Maybe Later'}
             </button>
           </div>
 
           {/* Footer Note */}
-          <p className="text-center text-white/60 text-lg md:text-xl mt-8">
+          <p className="tw-text-center tw-text-white/70 tw-text-xl md:tw-text-2xl tw-mt-10 tw-drop-shadow">
             {content?.footerText || '🔥 Only 100 slots available • Act fast before they\'re gone!'}
           </p>
         </div>
