@@ -337,12 +337,12 @@ export const First100FoundersModal = ({
           </div>
 
           {/* Benefits Grid - More premium look */}
-          <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-8 md:tw-gap-12">
+          <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-8 md:tw-gap-8">
             {defaultBenefits.map((benefit, index) => (
               <div
                 key={index}
-                className={`tw-relative tw-backdrop-blur-lg tw-rounded-2xl tw-shadow-lg tw-border tw-border-gray-200 tw-px-4 tw-py-5 tw-flex tw-items-center tw-space-x-4 hover:tw-shadow-xl hover:tw-scale-105 tw-transition-all tw-duration-300 tw-bg-gradient-to-br ${benefit.bg ? benefit.bg.replace(/(from-|to-|via-|bg-)/g, 'tw-$&') : 'tw-from-blue-500/20 tw-to-cyan-500/20'}`}
-                style={{ minHeight: '90px' }}
+                className={`tw-relative tw-backdrop-blur-lg tw-rounded-2xl tw-border tw-border-solid tw-px-4 tw-py-5 tw-flex tw-items-center tw-space-x-4 hover:tw-scale-105 tw-transition-all tw-duration-300 tw-bg-gradient-to-br ${benefit.bg ? benefit.bg.replace(/(from-|to-|via-|bg-)/g, 'tw-$&') : 'tw-from-blue-500/20 tw-to-cyan-500/20'}`}
+                style={{ minHeight: '90px', borderColor: 'rgba(179, 177, 177, 0.4)', borderWidth: 1 }}
               >
                 <div className={`tw-flex-shrink-0 tw-flex tw-items-center tw-justify-center tw-w-10 tw-h-10 tw-bg-white/30 tw-rounded-xl tw-shadow`}
                   >
@@ -357,16 +357,20 @@ export const First100FoundersModal = ({
 
           {/* CTA Buttons - More prominent */}
           <div className="tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-justify-center tw-gap-8 tw-mt-6">
-            <button
-              onClick={handleNavigate}
-              className="tw-group tw-px-16 tw-py-7 tw-text-white tw-font-bold tw-text-2xl md:tw-text-3xl tw-rounded-3xl tw-transition-all tw-duration-300 tw-shadow-2xl tw-transform tw-flex tw-items-center tw-space-x-4 tw-w-full sm:tw-w-auto tw-justify-center tw-border-2 tw-border-purple-400"
-              style={{
-                background: 'linear-gradient(to right, #7c3aed, #2563eb, #4f46e5)',
-              }}
+            <a
+            href="https://www.ventureos.com/first100founders"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tw-group tw-px-12 tw-py-6 tw-bg-gradient-to-r tw-from-purple-600 tw-via-blue-600 tw-to-indigo-600 tw-text-white tw-font-bold tw-text-xl md:tw-text-2xl tw-rounded-2xl hover:tw-from-purple-700 hover:tw-via-blue-700 hover:tw-to-indigo-700 tw-transition-all tw-duration-300 tw-shadow-2xl hover:tw-shadow-purple-500/50 tw-transform hover:tw-scale-110 tw-flex tw-items-center tw-space-x-3 tw-w-full sm:tw-w-auto tw-justify-center"
+            style={{
+            background: 'linear-gradient(to right, #9333ea, #2563eb, #4f46e5)',
+            border: 'none',
+            textDecoration: 'none',
+            }}
             >
-              <span>{content?.ctaText || 'Reserve My Founder Spot'}</span>
-              <ArrowRight className="tw-w-7 tw-h-7 tw-group-hover:tw-translate-x-2 tw-transition-transform" />
-            </button>
+            <span>{content?.ctaText || 'Reserve My Founder Spot'}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="tw-w-6 tw-h-6 tw-group-hover:tw-translate-x-2 tw-transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </a>
             <button
               onClick={handleClose}
               className="tw-px-12 tw-py-7 tw-bg-white/20 tw-backdrop-blur-xl tw-text-white tw-font-semibold tw-text-xl tw-rounded-3xl hover:tw-bg-white/30 tw-border-2 tw-border-white/40 tw-transition-all tw-w-full sm:tw-w-auto tw-shadow-md"
