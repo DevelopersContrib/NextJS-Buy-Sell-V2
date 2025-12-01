@@ -300,7 +300,7 @@ export const First100FoundersModal = ({
         </button>
 
         {/* Main Content */}
-        <div className="tw-max-w-5xl tw-w-full tw-space-y-6 md:tw-space-y-10 tw-pt-36">
+        <div className="tw-max-w-5xl tw-w-full tw-space-y-6 md:tw-space-y-6 tw-pt-36">
           {/* Header Section */}
           <div className="tw-text-center tw-space-y-8">
             <div className="tw-inline-flex tw-items-center tw-space-x-2 tw-bg-gradient-to-r tw-from-yellow-400 tw-via-orange-400 tw-to-pink-500 tw-rounded-full tw-px-10 tw-py-4 tw-shadow-2xl tw-mb-6 tw-border-2 tw-border-yellow-300 tw-animate-pulse">
