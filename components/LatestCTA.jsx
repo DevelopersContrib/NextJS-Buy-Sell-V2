@@ -2,16 +2,20 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 const StaticCTAButton = () => {
   return (
-    <section className="tw-pt-20 tw-pb-10 py-32">
-          <style jsx>{`
+    <section
+      className="tw-pt-16 tw-pb-16 tw-px-4 tw-bg-cover tw-bg-center tw-bg-no-repeat"
+      style={{
+        backgroundImage: "url('/images/dark-overlay.png')",
+        backgroundColor: "#08090A",
+      }}
+    >
+      <style jsx>{`
         .tw-bounce {
           animation: bounce 2s infinite;
         }
-
         @keyframes bounce {
           0%, 20%, 50%, 80%, 100% {
             transform: translateY(0);
@@ -24,13 +28,13 @@ const StaticCTAButton = () => {
           }
         }
       `}</style>
-      <div className="container mx-auto px-4 text-center tw-py-10 tw-bg-gray text-mint-500 font-mono relative overflow-hidden tw-rounded-full">
-        <motion.div
-          className="absolute inset-0 tw-bg-gradient-to-r tw-from-green-200 tw-to-green-400"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-        />
+      <div
+        className="container mx-auto px-4 text-center tw-py-12 tw-px-6 md:tw-py-16 tw-rounded-xl tw-max-w-4xl tw-transition-all tw-duration-200 hover:tw-border-[#3f4040]"
+        style={{
+          backgroundColor: "#0f1011",
+          border: "1px solid rgba(255,255,255,.08)",
+        }}
+      >
         <div className="relative mb-6">
           <Image
             src="/images/adaotoken.png"
@@ -40,18 +44,20 @@ const StaticCTAButton = () => {
             className="tw-bounce"
           />
         </div>
-        <h2 className="tw-text-3xl md:tw-text-5xl tw-font-bold mb-6 tw-text-mint-500">Seize the Future with ADAO Tokens!</h2>
-        <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto">
-          Don&apos;t miss your chance to be part of the next big leap in digital innovation. With our DEX listing set for February, the value of ADAO Tokens is poised to soar. Secure your tokens today and position yourself at the forefront of the digital agent revolution. Act now and join a community that&apos;s shaping the future of decentralized technology.
+        <h2 className="tw-text-xl md:tw-text-3xl tw-font-semibold tw-tracking-tight tw-mb-4 tw-text-white">
+          Seize the future with ADAO Tokens
+        </h2>
+        <p className="tw-text-sm md:tw-text-base tw-text-zinc-400 tw-mb-10 tw-max-w-xl tw-mx-auto tw-leading-relaxed">
+          Don&apos;t miss your chance to be part of the next big leap in digital innovation. Secure
+          your tokens today and join a community shaping the future of decentralized technology.
         </p>
         <button
-          className="tw-bg-gray-800 hover:tw-bg-gray-700 tw-text-white tw-font-bold tw-text-lg tw-px-12 tw-py-6 tw-rounded-xl tw-shadow-lg tw-transform tw-transition-transform tw-duration-300 hover:tw-scale-105"
-          onClick={() => window.open('https://adao.ai', '_blank')}
+          className="tw-bg-white tw-text-[#08090A] tw-font-medium tw-text-sm tw-px-6 tw-py-3 tw-rounded-lg hover:tw-bg-zinc-200 tw-transition-colors"
+          onClick={() => window.open("https://adao.ai", "_blank")}
         >
-          Buy ADAO Tokens Now
+          Buy ADAO Tokens
         </button>
       </div>
-    
     </section>
   );
 };

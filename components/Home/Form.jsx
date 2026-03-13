@@ -37,229 +37,148 @@ const Form = ({ domain }) => {
     };
     setUrlQuery();
   }, [selectedOption, offerAmount, url, partnerType]);
+  const NextIcon = () => (
+    <svg className="tw-w-5 tw-h-5 tw-ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    </svg>
+  );
+
+  const ctaClass =
+    "buy-form-cta tw-inline-flex tw-items-center tw-justify-center tw-w-full tw-py-3 tw-px-4 tw-rounded-lg tw-font-semibold tw-text-[15px] tw-text-white tw-transition-colors tw-no-underline";
+
   return (
-    <>
-      <div className="buy-form">
-        <div className="buy-form-header">
-          <h4 className="tw-font-extrabold tw-text-2xl mb-3">
-            Get this domain
-          </h4>
-        </div>
-        <div className="buy-form-body">
-          <div className="buy-options">
-            <div
-              className={`buy-option-item ${
-                selectedOption === "buy" ? "active" : ""
-              }`}
+    <div className="buy-form">
+      <div className="buy-form-header">
+        <span className="tw-inline-block tw-text-[10px] tw-uppercase tw-tracking-widest tw-text-zinc-500 tw-bg-white/[0.08] tw-px-2.5 tw-py-1 tw-rounded-md tw-mb-3">
+          Start here
+        </span>
+        <h4 className="tw-font-semibold tw-text-xl tw-tracking-tight tw-text-white tw-mb-1">
+          Get this domain
+        </h4>
+        <p className="tw-text-sm tw-text-zinc-400 tw-mb-1">
+          Choose an option — quick and easy, no commitment.
+        </p>
+        <p className="tw-text-xs tw-text-zinc-500 tw-mb-0">
+          Join 150,000+ contributors already on Contrib.
+        </p>
+      </div>
+      <div className="buy-form-body">
+        <div className="buy-options">
+          <div className={`buy-option-item ${selectedOption === "buy" ? "active" : ""}`}>
+            <label
+              className={`form-check-label buy-options-check ${selectedOption === "buy" ? "active" : ""}`}
+              htmlFor="optionsBuy"
             >
-              <label
-                className={`form-check-label buy-options-check lease-checkbox ${
-                  selectedOption === "buy" ? "active" : ""
-                }`}
-                htmlFor="optionsBuy"
-              >
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="type"
-                  id="optionsBuy"
-                  value="buy"
-                  checked={selectedOption === "buy"}
-                  onChange={handleOptionChange}
-                />
-                Make an offer
-                <span className="buy-form-amount ms-auto text-primary">
-                  USD $10000
-                </span>
-              </label>
-              <div className="buy-lease-offer-input">
-                <input
-                  name="offer_amount"
-                  type="number"
-                  className="form-control"
-                  placeholder="My offer in USD"
-                  value={offerAmount}
-                  onChange={handleOfferAmountChange}
-                />
-              </div>
-            </div>
-
-            <div
-              className={`buy-option-item ${
-                selectedOption === "partner" ? "active" : ""
-              }`}
-            >
-              <label
-                className={`form-check-label buy-options-check lease-checkbox ${
-                  selectedOption === "partner" ? "active" : ""
-                }`}
-                htmlFor="optionsPartner"
-              >
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="type"
-                  id="optionsPartner"
-                  value="partner"
-                  checked={selectedOption === "partner"}
-                  onChange={handleOptionChange}
-                />
-                Partner
-              </label>
-              <div className="buy-lease-offer-input">
-                <select
-                  name="partner_type"
-                  className="form-select"
-                  onChange={handlePartnerTypeChange}
-                >
-                  <option value="" disabled="">
-                    Type of Partnership
-                  </option>
-                  <option value="Sponsorship Marketing Partnerships">
-                    Sponsor Marketing Partnerships
-                  </option>
-                  <option value="Distribution Marketing Partnerships">
-                    Distribution Marketing Partnerships
-                  </option>
-                  <option value="Affiliate Marketing Partnerships">
-                    Affiliate Marketing Partnerships
-                  </option>
-                  <option value="Added Value Marketing Partnerships">
-                    Added Value Marketing Partnerships
-                  </option>
-                </select>
-              </div>
-            </div>
-
-            <div
-              className={`buy-option-item ${
-                selectedOption === "join" ? "active" : ""
-              }`}
-            >
-              <label
-                className={`form-check-label buy-options-check ${
-                  selectedOption === "join" ? "active" : ""
-                }`}
-                htmlFor="optionsJoin"
-              >
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="type"
-                  id="optionsJoin"
-                  value="join"
-                  checked={selectedOption === "join"}
-                  onChange={handleOptionChange}
-                />
-                Join Team
-              </label>
+              <input
+                className="form-check-input"
+                type="radio"
+                name="type"
+                id="optionsBuy"
+                value="buy"
+                checked={selectedOption === "buy"}
+                onChange={handleOptionChange}
+              />
+              Make an offer
+              <span className="buy-form-amount ms-auto">USD ${Number(offerAmount || 0).toLocaleString()}</span>
+            </label>
+            <div className="buy-lease-offer-input">
+              <input
+                name="offer_amount"
+                type="number"
+                className="form-control"
+                placeholder="Enter your offer in USD"
+                value={offerAmount}
+                onChange={handleOfferAmountChange}
+              />
             </div>
           </div>
-          <div className="buy-form-button d-grid">
-            <Link
-              id="buy"
-              className={`btn btn-primary py-3 ${
-                selectedOption === "buy" ? "" : "d-none"
-              }`}
-              href={url}
+
+          <div className={`buy-option-item ${selectedOption === "partner" ? "active" : ""}`}>
+            <label
+              className={`form-check-label buy-options-check ${selectedOption === "partner" ? "active" : ""}`}
+              htmlFor="optionsPartner"
             >
-              Next
-              <svg
-                className="tw-w-6 tw-h-6 ms-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              <input
+                className="form-check-input"
+                type="radio"
+                name="type"
+                id="optionsPartner"
+                value="partner"
+                checked={selectedOption === "partner"}
+                onChange={handleOptionChange}
+              />
+              Partner
+            </label>
+            <div className="buy-lease-offer-input">
+              <select
+                name="partner_type"
+                className="form-select"
+                onChange={handlePartnerTypeChange}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                ></path>
-              </svg>
-            </Link>
-            <Link
-              id="partner"
-              className={`btn btn-primary py-3 ${
-                selectedOption === "partner" ? "" : "d-none"
-              }`}
-              href="/partner?type=Sponsorship Marketing Partnerships"
+                <option value="" disabled>Type of Partnership</option>
+                <option value="Sponsorship Marketing Partnerships">Sponsor Marketing Partnerships</option>
+                <option value="Distribution Marketing Partnerships">Distribution Marketing Partnerships</option>
+                <option value="Affiliate Marketing Partnerships">Affiliate Marketing Partnerships</option>
+                <option value="Added Value Marketing Partnerships">Added Value Marketing Partnerships</option>
+              </select>
+            </div>
+          </div>
+
+          <div className={`buy-option-item ${selectedOption === "join" ? "active" : ""}`}>
+            <label
+              className={`form-check-label buy-options-check ${selectedOption === "join" ? "active" : ""}`}
+              htmlFor="optionsJoin"
             >
-              Next
-              <svg
-                className="tw-w-6 tw-h-6 ms-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                ></path>
-              </svg>
-            </Link>
-            <a
-              id="join"
-              className={`btn btn-primary py-3 ${
-                selectedOption === "join" ? "" : "d-none"
-              }`}
-              href="https://www.contrib.com/signup/firststep?domain=euroinvestment.com"
-            >
-              Next
-              <svg
-                className="tw-w-6 tw-h-6 ms-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                ></path>
-              </svg>
-            </a>
+              <input
+                className="form-check-input"
+                type="radio"
+                name="type"
+                id="optionsJoin"
+                value="join"
+                checked={selectedOption === "join"}
+                onChange={handleOptionChange}
+              />
+              Join Team
+            </label>
           </div>
         </div>
-        <div className="buy-form-footer">
-          <ul className="list-inline mb-0 text-center">
-            <li className="list-inline-item">
-              <div className="box-mode-pay">
-                <Image
-                  height="30"
-                  width="80"
-                  src="https://cdn.vnoc.com/icons/frameworks/paypal.svg"
-                  alt=""
-                />
-              </div>
-            </li>
-            <li className="list-inline-item">
-              <div className="box-mode-pay">
-                <Image
-                  height="30"
-                  width="80"
-                  src="https://cdn.vnoc.com/icons/frameworks/bitcoin-sv-1.svg"
-                  alt=""
-                />
-              </div>
-            </li>
-            <li className="list-inline-item">
-              <div className="box-mode-pay">
-                <Image
-                  height="30"
-                  width="80"
-                  src="https://cdn.vnoc.com/icons/frameworks/binance-coin-bnb.svg"
-                  alt=""
-                />
-              </div>
-            </li>
-          </ul>
+        <div className="buy-form-button d-grid">
+          <Link id="buy" className={`${ctaClass} ${selectedOption === "buy" ? "" : "d-none"}`} href={url}>
+            Continue <NextIcon />
+          </Link>
+          <Link
+            id="partner"
+            className={`${ctaClass} ${selectedOption === "partner" ? "" : "d-none"}`}
+            href={`/partner?type=${encodeURIComponent(partnerType || "Sponsorship Marketing Partnerships")}`}
+          >
+            Continue <NextIcon />
+          </Link>
+          <a
+            id="join"
+            className={`${ctaClass} ${selectedOption === "join" ? "" : "d-none"}`}
+            href={`https://www.contrib.com/signup/firststep?domain=${domain}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Continue <NextIcon />
+          </a>
         </div>
       </div>
-    </>
+      <div className="buy-form-footer">
+        <p className="tw-text-xs tw-text-zinc-500 tw-mb-2">Accepted payment methods</p>
+        <ul className="list-inline mb-0 tw-flex tw-items-center tw-justify-center tw-gap-4">
+          <li className="list-inline-item">
+            <Image height="24" width="64" src="https://cdn.vnoc.com/icons/frameworks/paypal.svg" alt="PayPal" />
+          </li>
+          <li className="list-inline-item">
+            <Image height="24" width="64" src="https://cdn.vnoc.com/icons/frameworks/bitcoin-sv-1.svg" alt="Bitcoin SV" />
+          </li>
+          <li className="list-inline-item">
+            <Image height="24" width="64" src="https://cdn.vnoc.com/icons/frameworks/binance-coin-bnb.svg" alt="BNB" />
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 };
 

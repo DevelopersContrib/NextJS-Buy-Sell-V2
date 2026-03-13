@@ -12,25 +12,21 @@ const Navigation = ({ domain }) => {
   return (
     <>
       {showTopHeader && (
-        <div className="tw-bg-black tw-text-white tw-text-sm tw-py-2 tw-flex tw-justify-between tw-items-center tw-px-4 lg:tw-px-8">
-          <div>
-            <a
-              href="https://www.vnoc.com"
-              target="_blank"
-              alt="Next Gen Digital Asset Platform"
-              rel="noopener noreferrer"
-              className="nav-link tw-text-blue-600 tw-font-semibold hover:tw-underline"
-            >
-              Powered by VNOC
-            </a>
-          </div>
-
-          <div className="tw-flex tw-items-center tw-gap-4">
+        <div className="tw-bg-[#070809] tw-text-zinc-400 tw-text-sm tw-py-2.5 tw-flex tw-justify-between tw-items-center tw-px-4 lg:tw-px-8 tw-border-b tw-border-white/[0.06]">
+          <a
+            href="https://www.vnoc.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tw-no-underline tw-text-zinc-400 hover:tw-text-white tw-transition-colors"
+          >
+            Powered by VNOC
+          </a>
+          <div className="tw-flex tw-items-center tw-gap-3">
             <Link
               href={`https://contrib.com/to/${domain}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="nav-link tw-flex tw-items-center tw-bg-black tw-text-white tw-px-3 tw-py-1 tw-rounded-md hover:tw-bg-gray-800 transition"
+              className="tw-no-underline tw-text-zinc-400 hover:tw-text-white tw-px-3 tw-py-1.5 tw-rounded-md hover:tw-bg-white/[0.06] tw-transition-colors"
             >
               Register
             </Link>
@@ -38,43 +34,43 @@ const Navigation = ({ domain }) => {
               href="https://adao.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="nav-link tw-flex tw-items-center tw-bg-black tw-text-white tw-px-3 tw-py-1 tw-rounded-md hover:tw-bg-gray-800 transition"
+              className="tw-no-underline tw-text-zinc-400 hover:tw-text-white tw-px-3 tw-py-1.5 tw-rounded-md hover:tw-bg-white/[0.06] tw-transition-colors"
             >
               Buy Adao
             </Link>
             <button
               onClick={() => setShowTopHeader(false)}
-              className="tw-text-white hover:tw-text-gray-400 tw-text-lg tw-font-bold tw-bg-transparent border-0"
+              className="tw-text-zinc-500 hover:tw-text-white tw-text-sm tw-bg-transparent tw-border-0 tw-p-1 tw-cursor-pointer"
             >
               ✕
             </button>
           </div>
         </div>
       )}
-      <Navbar bg="primary" variant="dark" expand="lg">
+      <Navbar expand="lg" className="site-navbar tw-bg-[#070809] tw-border-b tw-border-white/[0.06] tw-py-2">
         <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="tw-border-white/25 focus:tw-shadow-none" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto">
-              <Link href="/" className="nav-link">
+            <Nav className="mx-auto tw-gap-6">
+              <Link href="/" className="nav-link tw-text-zinc-400 hover:tw-text-white tw-py-2 tw-transition-colors tw-text-[15px]">
                 Home
               </Link>
-              <Link href="/blog" className="nav-link">
+              <Link href="/blog" className="nav-link tw-text-zinc-400 hover:tw-text-white tw-py-2 tw-transition-colors tw-text-[15px]">
                 Blog
               </Link>
-              <Nav.Link href={`https://www.contrib.com/to/${domain}`} target="_blank">
+              <Nav.Link href={`https://www.contrib.com/to/${domain}`} target="_blank" className="tw-text-zinc-400 hover:tw-text-white tw-transition-colors tw-text-[15px]">
                 Contribute
               </Nav.Link>
-              <Link href="/partner" className="nav-link">
+              <Link href="/partner" className="nav-link tw-text-zinc-400 hover:tw-text-white tw-py-2 tw-transition-colors tw-text-[15px]">
                 Partner
               </Link>
-              <Link href={`https://advertise.ipartner.com/?domain=${domain}`} className="nav-link" target="_blank">
+              <Link href={`https://advertise.ipartner.com/?domain=${domain}`} className="nav-link tw-text-zinc-400 hover:tw-text-white tw-py-2 tw-transition-colors tw-text-[15px]" target="_blank">
                 Advertise
               </Link>
-              <Link href="/about" className="nav-link">
+              <Link href="/about" className="nav-link tw-text-zinc-400 hover:tw-text-white tw-py-2 tw-transition-colors tw-text-[15px]">
                 About
               </Link>
-              <Nav.Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} target="_blank">
+              <Nav.Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} target="_blank" className="tw-text-zinc-400 hover:tw-text-white tw-transition-colors tw-text-[15px]">
                 Contact
               </Nav.Link>
             </Nav>

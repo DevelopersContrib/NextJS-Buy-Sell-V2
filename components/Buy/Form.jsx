@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import LoadingState from "../LoadingState";
 import ErrorBlock from "../ErrorBlock";
 
@@ -142,16 +140,16 @@ const BuyForm = ({ domain, countries, setSuccess }) => {
       {data.isLoading ? (
         <LoadingState />
       ) : (
-        <div className="col-xl-12 ">
-          <div className="tw-flex tw-flex-col lg:tw-flex-row tw-w-full mb-3">
-            <div className="tw-flex-[0_0_50%] tw-p-12">
+        <div className="col-xl-12">
+          <div className="tw-w-full">
+            <div className="tw-pr-0">
               {/* Start:: Step 1 */}
               <div className="row">
                 <div className="col-xl-12 tw-text-center mb-3">
-                  <h2 className="tw-text-3xl tw-font-medium">
-                    Partner with {domain} today
+                  <h2 className="tw-text-2xl md:tw-text-3xl tw-font-semibold tw-text-white">
+                    Make your offer for {domain}
                   </h2>
-                  <p>Create your Profile to make a partnership</p>
+                  <p className="tw-text-zinc-400 tw-text-sm">Submit your details to get started.</p>
                 </div>
                 <div className="col-xl-12">
                   <div className="mb-3">
@@ -337,59 +335,12 @@ const BuyForm = ({ domain, countries, setSuccess }) => {
                     </a>
                   </div>
                   <div className="text-center">
-                    <Link href="/partner" className="tw-no-underline">
-                      Or you can partner this domain!
+                    <Link href="/partner" className="tw-no-underline tw-text-zinc-400 hover:tw-text-white tw-transition-colors">
+                      Or partner with this domain
                     </Link>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="tw-flex-[0_0_50%] tw-bg-[#eaeaea] tw-p-12 tw-flex tw-justify-center tw-items-center tw-flex-col">
-              <h2 className="mb-4 tw-text-center tw-text-4xl tw-font-medium">
-                A great domain name is a great asset
-              </h2>
-              <p className="tw-text-center">
-                Invest in a great domain name as part of your brand strategy and
-                take your business to the next level
-              </p>
-              <ul className="list-unstyled">
-                <li>
-                  <div className="tw-inline-flex tw-items-center">
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className="tw-w-4 tw-h-4 tw-mr-2 tw-text-blue-500"
-                    />{" "}
-                    Secure your online identity
-                  </div>
-                </li>
-                <li>
-                  <div className="tw-inline-flex tw-items-center">
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className="tw-w-4 tw-h-4 tw-mr-2 tw-text-blue-500"
-                    />{" "}
-                    Enhance your brand equity
-                  </div>
-                </li>
-                <li>
-                  <div className="tw-inline-flex tw-items-center">
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className="tw-w-4 tw-h-4 tw-mr-2 tw-text-blue-500"
-                    />{" "}
-                    Boost your credibility
-                  </div>
-                </li>
-                <li>
-                  <div className="tw-inline-flex tw-items-center">
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className="tw-w-4 tw-h-4 tw-mr-2 tw-text-blue-500"
-                    />{" "}
-                    Improve conversion rates
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

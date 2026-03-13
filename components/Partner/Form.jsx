@@ -232,7 +232,7 @@ export default function PartnerForm({
   };
 
   return (
-    <div className="tw-flex-[0_0_50%] tw-p-12">
+    <div className="tw-p-6 md:tw-p-8">
       {data.isLoading ? <LoadingState /> : showStep()}
     </div>
   );

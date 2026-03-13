@@ -9,119 +9,72 @@ import Thanku from "./Thanku";
 const Container = ({ domain, logo, countries }) => {
   const [success, setSuccess] = useState(false);
 
+  const cardStyle = {
+    background: "linear-gradient(0deg, rgba(255,255,255,.02), rgba(255,255,255,.02)), #0f1011",
+    border: "1px solid rgba(255,255,255,.08)",
+  };
+
   return (
-    <section className="tw-min-h-[calc(100vh-56px-74px)] tw-relative tw-py-12 tw-flex tw-w-full tw-items-center tw-bg-white">
+    <section className="tw-min-h-[calc(100vh-56px-74px)] tw-relative tw-py-16 tw-flex tw-w-full tw-items-center tw-bg-[#08090A] tw-text-white">
       <div className="container">
         <div className="row">
-          <div className="col-xl-12 tw-text-center">
+          <div className="col-xl-12 tw-text-center tw-mb-8">
             <Logo domain={domain} logo={logo} />
           </div>
 
           {success ? (
             <Thanku />
           ) : (
-            <Form
-              domain={domain}
-              countries={countries}
-              setSuccess={setSuccess}
-            />
-          )}
-
-          <div className="col-xl-12 py-5">
-            <hr />
-          </div>
-          <div className="col-xl-12">
-            <div className="row gy-5">
-              <div className="col-xl-6 tw-flex">
-                <div className="row tw-items-center">
-                  <div className="col-xl-8 text-xl-end">
-                    <h4 className="tw-text-2xl tw-font-medium">
-                      Select Your Domain
-                    </h4>
-                    <p className="small">
-                      Search Ecorp&apos;s database for the ultimate domain name
-                      for your business, project or brand.
-                    </p>
-                  </div>
-                  <div className="col-xl-4">
-                    <Image
-                      src="https://cdn.vnoc.com/icons/domain.jpg"
-                      width={300}
-                      height={300}
-                      alt=""
-                      className="img-fluid tw-rounded-full"
-                    />
-                  </div>
+            <div className="col-xl-12">
+              <div className="row tw-align-items-start tw-g-6">
+                <div className="col-xl-7 col-lg-7 page-form-theme">
+                  <Form
+                    domain={domain}
+                    countries={countries}
+                    setSuccess={setSuccess}
+                  />
                 </div>
-              </div>
-              <div className="col-xl-6 tw-flex">
-                <div className="row tw-items-center">
-                  <div className="col-xl-4">
-                    <Image
-                      src="https://cdn.vnoc.com/icons/offer.jpg"
-                      width={300}
-                      height={300}
-                      alt=""
-                      className="img-fluid tw-rounded-full"
-                    />
+                <div className="col-xl-5 col-lg-5 tw-flex tw-flex-col tw-gap-4 lg:tw-sticky lg:tw-top-24">
+                  <div className="tw-rounded-xl tw-p-5 tw-flex tw-items-center tw-gap-4" style={cardStyle}>
+                    <div className="tw-shrink-0">
+                      <Image src="https://cdn.vnoc.com/icons/domain.jpg" width={80} height={80} alt="" className="img-fluid tw-rounded-full tw-object-cover" />
+                    </div>
+                    <div>
+                      <h4 className="tw-text-base tw-font-semibold tw-text-white tw-mb-1">Select Your Domain</h4>
+                      <p className="tw-text-zinc-400 tw-text-sm tw-mb-0">Search Ecorp&apos;s database for the ultimate domain name for your business, project or brand.</p>
+                    </div>
                   </div>
-                  <div className="col-xl-8">
-                    <h4 className="tw-text-2xl tw-font-medium">
-                      Submit your best offer
-                    </h4>
-                    <p className="small">
-                      We&apos;ll let you know if it&apos;s too low for
-                      consideration.
-                    </p>
+                  <div className="tw-rounded-xl tw-p-5 tw-flex tw-items-center tw-gap-4" style={cardStyle}>
+                    <div className="tw-shrink-0">
+                      <Image src="https://cdn.vnoc.com/icons/offer.jpg" width={80} height={80} alt="" className="img-fluid tw-rounded-full tw-object-cover" />
+                    </div>
+                    <div>
+                      <h4 className="tw-text-base tw-font-semibold tw-text-white tw-mb-1">Submit your best offer</h4>
+                      <p className="tw-text-zinc-400 tw-text-sm tw-mb-0">We&apos;ll let you know if it&apos;s too low for consideration.</p>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="col-xl-6 tw-flex">
-                <div className="row tw-items-center">
-                  <div className="col-xl-8 text-xl-end">
-                    <h4 className="tw-text-2xl tw-font-medium">
-                      Agree to the terms
-                    </h4>
-                    <p className="small">
-                      Once the price is decided, agree to the terms of the
-                      domain name sales agreement.
-                    </p>
+                  <div className="tw-rounded-xl tw-p-5 tw-flex tw-items-center tw-gap-4" style={cardStyle}>
+                    <div className="tw-shrink-0">
+                      <Image src="https://cdn.vnoc.com/icons/agreement.jpg" width={80} height={80} alt="" className="img-fluid tw-rounded-full tw-object-cover" />
+                    </div>
+                    <div>
+                      <h4 className="tw-text-base tw-font-semibold tw-text-white tw-mb-1">Agree to the terms</h4>
+                      <p className="tw-text-zinc-400 tw-text-sm tw-mb-0">Once the price is decided, agree to the terms of the domain name sales agreement.</p>
+                    </div>
                   </div>
-                  <div className="col-xl-4">
-                    <Image
-                      src="https://cdn.vnoc.com/icons/agreement.jpg"
-                      width={300}
-                      height={300}
-                      alt=""
-                      className="img-fluid tw-rounded-full"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-6 tw-flex">
-                <div className="row tw-items-center">
-                  <div className="col-xl-4">
-                    <Image
-                      src="https://cdn.vnoc.com/icons/transfer.jpg"
-                      width={300}
-                      height={300}
-                      alt=""
-                      className="img-fluid tw-rounded-full"
-                    />
-                  </div>
-                  <div className="col-xl-8">
-                    <h4 className="tw-text-2xl tw-font-medium">
-                      Launch your website
-                    </h4>
-                    <p className="small">
-                      Once payment has been confirmed the owner will transfer
-                      the domain to you.
-                    </p>
+                  <div className="tw-rounded-xl tw-p-5 tw-flex tw-items-center tw-gap-4" style={cardStyle}>
+                    <div className="tw-shrink-0">
+                      <Image src="https://cdn.vnoc.com/icons/transfer.jpg" width={80} height={80} alt="" className="img-fluid tw-rounded-full tw-object-cover" />
+                    </div>
+                    <div>
+                      <h4 className="tw-text-base tw-font-semibold tw-text-white tw-mb-1">Launch your website</h4>
+                      <p className="tw-text-zinc-400 tw-text-sm tw-mb-0">Once payment has been confirmed the owner will transfer the domain to you.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
