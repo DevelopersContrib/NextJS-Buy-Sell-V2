@@ -1,15 +1,18 @@
 export default function HeroAgentsIllustration() {
   const filterPrefix = "hero-agents";
   return (
-    <div className="tw-relative tw-mt-10 tw-max-w-5xl tw-mx-auto">
-      {/* Main hexagon/agents illustration */}
+    <div
+      className="tw-relative tw-mt-8 tw-w-full tw-max-w-[min(100%,36rem)] tw-mx-auto md:tw-mt-10 md:tw-mx-0 lg:tw-max-w-[min(100%,40rem)]"
+      aria-hidden
+    >
+      {/* Anchored under left-aligned copy on md+; centered on small screens */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="304"
         height="281"
         fill="none"
         viewBox="0 0 304 281"
-        className="tw-w-full tw-h-auto tw-min-h-[280px] tw-max-h-[380px] md:tw-max-h-[480px]"
+        className="tw-h-auto tw-w-full tw-max-h-[260px] tw-opacity-95 tw-drop-shadow-[0_20px_48px_rgba(0,0,0,0.35)] sm:tw-max-h-[300px] md:tw-max-h-[340px] lg:tw-max-h-[360px]"
         aria-hidden
       >
         <path

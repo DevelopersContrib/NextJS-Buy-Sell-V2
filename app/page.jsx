@@ -22,6 +22,7 @@ import {
 export default async function Home() {
   const c = await getData();
   const domain = getDomain();
+  const domainLabel = domain.charAt(0).toUpperCase() + domain.slice(1);
   const topDomains = await getTopsites();
   const latestContributions = await getLatestContributions();
   const latestContributors = await getLatestContributors();
@@ -38,22 +39,66 @@ export default async function Home() {
   return (
     <>
       <Navigation domain={domain} />
-      {/* Hero - Linear-style */}
-      <section
-        className="tw-relative tw-text-white tw-py-20 md:tw-py-28 tw-flex tw-w-full tw-items-center tw-min-h-[70vh] tw-overflow-hidden tw-bg-cover tw-bg-center tw-bg-no-repeat"
-        style={{
-          backgroundImage: "url('/images/dark-overlay.png')",
-          backgroundColor: "#0f1011",
-        }}
-      >
+      <section className="tw-relative tw-isolate tw-flex tw-w-full tw-items-center tw-min-h-[72vh] tw-overflow-hidden tw-bg-[#08090a] tw-text-white tw-py-16 md:tw-py-24">
+        <div
+          className="tw-pointer-events-none tw-absolute tw-inset-0 tw-overflow-hidden"
+          aria-hidden
+        >
+          <div className="tw-absolute tw--top-32 tw-left-1/2 tw-h-[420px] tw-w-[min(100%,720px)] tw--translate-x-1/2 tw-rounded-full tw-bg-[#5e6ad2]/[0.14] tw-blur-[90px]" />
+          <div className="tw-absolute tw--bottom-24 tw--right-24 tw-h-[280px] tw-w-[420px] tw-rounded-full tw-bg-violet-600/[0.1] tw-blur-[72px]" />
+        </div>
+        <div
+          className="tw-absolute tw-inset-0 tw-bg-cover tw-bg-center tw-bg-no-repeat tw-opacity-[0.35]"
+          style={{ backgroundImage: "url('/images/dark-overlay.png')" }}
+          aria-hidden
+        />
         <div className="container tw-relative tw-z-10">
-          <div className="row tw-mb-8 tw-align-items-start">
-            <div className="col-xl-8 tw-mb-8 tw-mb-xl-0">
-              <Logo domain={domain} logo={c.data.logo} />
+          <div className="row tw-align-items-start tw-gy-10">
+            <div className="col-xl-8 tw-mb-xl-0">
+              <Logo
+                domain={domain}
+                logo={c.data.logo}
+                align="start"
+                hideTextWordmark={!c.data.logo}
+              />
+              <div className="tw-mt-8 tw-text-center md:tw-mt-10 md:tw-text-left">
+                <p className="tw-mb-4 tw-text-[11px] tw-font-medium tw-uppercase tw-tracking-[0.2em] tw-text-zinc-500 md:tw-text-xs">
+                  Domain marketplace
+                </p>
+                <h1 className="tw-mb-5 tw-text-3xl tw-font-semibold tw-tracking-tight tw-leading-[1.12] sm:tw-text-4xl md:tw-text-5xl lg:tw-text-[3.25rem]">
+                  <span className="tw-text-zinc-400">Own </span>
+                  <span className="tw-font-semibold tw-tracking-tight tw-text-white">
+                    {domainLabel}
+                  </span>{" "}
+                  <span className="tw-text-zinc-300">on your terms</span>
+                </h1>
+                <p className="tw-mx-auto tw-mb-6 tw-max-w-xl tw-text-base tw-leading-relaxed tw-text-zinc-400 md:tw-mx-0 md:tw-text-lg">
+                  Make an offer, negotiate, and close with confidence. Buy, lease,
+                  rent, or partner — all backed by the Contrib network.
+                </p>
+                <ul className="tw-mb-0 tw-flex tw-list-none tw-flex-wrap tw-justify-center tw-gap-x-6 tw-gap-y-2 tw-pl-0 md:tw-justify-start">
+                  <li className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-zinc-500">
+                    <span
+                      className="tw-h-1 tw-w-1 tw-shrink-0 tw-rounded-full tw-bg-emerald-400/90"
+                      aria-hidden
+                    />
+                    Simple, guided steps
+                  </li>
+                  <li className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-zinc-500">
+                    <span
+                      className="tw-h-1 tw-w-1 tw-shrink-0 tw-rounded-full tw-bg-emerald-400/90"
+                      aria-hidden
+                    />
+                    150,000+ contributors
+                  </li>
+                </ul>
+              </div>
               <HeroAgentsIllustration />
             </div>
-            <div className="col-xl-4 tw-relative tw-sticky tw-top-24">
-              <FormOptions domain={domain} />
+            <div className="col-xl-4 tw-relative xl:tw-sticky xl:tw-top-24">
+              <div className="tw-mx-auto tw-w-full tw-max-w-[420px] xl:tw-mx-0 xl:tw-max-w-none">
+                <FormOptions domain={domain} />
+              </div>
             </div>
           </div>
         </div>
