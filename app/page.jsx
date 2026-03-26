@@ -5,7 +5,6 @@ import Notification from "@/components/notification/Notification";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import FormOptions from "../components/Home/Form";
-import HeroAgentsIllustration from "@/components/HeroAgentsIllustration";
 import Logo from "../components/Logo";
 import Navigation from "../components/Navigation";
 import TopDomainsComponent from "../components/TopDomainsComponent";
@@ -39,7 +38,7 @@ export default async function Home() {
   return (
     <>
       <Navigation domain={domain} />
-      <section className="tw-relative tw-isolate tw-flex tw-w-full tw-items-center tw-min-h-[72vh] tw-overflow-hidden tw-bg-[#08090a] tw-text-white tw-py-16 md:tw-py-24">
+      <section className="tw-relative tw-isolate tw-flex tw-w-full tw-items-center tw-overflow-hidden tw-bg-[#08090a] tw-text-white tw-py-16 md:tw-py-24">
         <div
           className="tw-pointer-events-none tw-absolute tw-inset-0 tw-overflow-hidden"
           aria-hidden
@@ -92,8 +91,44 @@ export default async function Home() {
                     150,000+ contributors
                   </li>
                 </ul>
+                <div className="tw-mx-auto tw-mt-8 tw-max-w-xl md:tw-mx-0">
+                  <p className="tw-mb-4 tw-text-center tw-text-[11px] tw-font-medium tw-uppercase tw-tracking-[0.2em] tw-text-zinc-500 md:tw-text-left md:tw-text-xs">
+                    Three ways to move forward
+                  </p>
+                  <div className="tw-grid tw-grid-cols-1 tw-gap-3 md:tw-grid-cols-3">
+                    <div
+                      className="tw-rounded-lg tw-border tw-border-white/[0.08] tw-bg-[linear-gradient(0deg,rgba(255,255,255,.02),rgba(255,255,255,.02))] tw-p-4 tw-text-left tw-transition-colors tw-duration-200 hover:tw-border-white/[0.12]"
+                    >
+                      <p className="tw-mb-1 tw-text-sm tw-font-semibold tw-text-white">
+                        Make an offer
+                      </p>
+                      <p className="tw-mb-0 tw-text-xs tw-leading-relaxed tw-text-zinc-500">
+                        Name your price and negotiate with the seller.
+                      </p>
+                    </div>
+                    <div
+                      className="tw-rounded-lg tw-border tw-border-white/[0.08] tw-bg-[linear-gradient(0deg,rgba(255,255,255,.02),rgba(255,255,255,.02))] tw-p-4 tw-text-left tw-transition-colors tw-duration-200 hover:tw-border-white/[0.12]"
+                    >
+                      <p className="tw-mb-1 tw-text-sm tw-font-semibold tw-text-white">
+                        Partner
+                      </p>
+                      <p className="tw-mb-0 tw-text-xs tw-leading-relaxed tw-text-zinc-500">
+                        Explore sponsorship, distribution, or affiliate deals.
+                      </p>
+                    </div>
+                    <div
+                      className="tw-rounded-lg tw-border tw-border-white/[0.08] tw-bg-[linear-gradient(0deg,rgba(255,255,255,.02),rgba(255,255,255,.02))] tw-p-4 tw-text-left tw-transition-colors tw-duration-200 hover:tw-border-white/[0.12]"
+                    >
+                      <p className="tw-mb-1 tw-text-sm tw-font-semibold tw-text-white">
+                        Join the team
+                      </p>
+                      <p className="tw-mb-0 tw-text-xs tw-leading-relaxed tw-text-zinc-500">
+                        Create a Contrib account tied to this domain.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <HeroAgentsIllustration />
             </div>
             <div className="col-xl-4 tw-relative xl:tw-sticky xl:tw-top-24">
               <div className="tw-mx-auto tw-w-full tw-max-w-[420px] xl:tw-mx-0 xl:tw-max-w-none">
